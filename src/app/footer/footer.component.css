@@ -1,0 +1,48 @@
+
+.footer{
+    background-color: #7ACDCD;
+    padding: 70px;
+    position: relative;
+}
+.footer-content img{
+    width: 145px;
+}
+.footer-content span{
+    font-size: 20px;
+    font-weight: 700;
+    color: #24447C;
+}
+.img-fluid{
+    margin-left: -36px;
+}
+h4{
+    padding-top: 20px;
+}
+h4::before{
+    content: "|";
+    color: #24447C;
+    font-weight: 700;
+}
+.usefullinks ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.usefullinks ul li{
+    border-bottom: 1px solid #24447C;  
+    line-height: 40px;
+}
+.usefullinks ul li a{
+    text-decoration: none;
+    color: rgb(12, 40, 122);
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    opacity: 0.05;
+    background-image: url('/assets/images/backgroundfooter.jpg');
+}
