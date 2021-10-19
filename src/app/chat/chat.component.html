@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="chat-window">
+            <div class="chat-cont-left">
+                <div class="chat-header">
+                    <span>Chats</span>
+                    <a href="javascript:void(0)" class="chat-compose">
+                        <i class="material-icons">control_point</i>
+                    </a>
+                </div>
+                <form class="chat-search">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+                <div class="chat-users-list">
+                    <div class="chat-scroll">
+                        <a href="javascript:void(0);" class="media d-flex">
+                            <div class="media-img-wrap">
+                                <div class="avatar avatar-away">
+                                    <img src="../../assets/images/avatar.svg" alt="User Image"
+                                        class="avatar-img rounded-circle">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <div>
+                                    <div class="user-name">Marie Canales</div>
+                                    <div class="user-last-chat">Hey, How are you?</div>
+                                </div>
+                                <div>
+                                    <div class="last-chat-time block">2 min</div>
+                                    <div class="badge badge-success badge-pill">15</div>
+                                </div>
+                            </div>
+                        </a>
+                       
+                        <a href="javascript:void(0);" class="media d-flex">
+                            <div class="media-img-wrap">
+                                <div class="avatar avatar-away">
+                                    <img src="../../assets/images/avatar.svg" alt="User Image"
+                                        class="avatar-img rounded-circle">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <div>
+                                    <div class="user-name">Greg Lynch</div>
+                                    <div class="user-last-chat">Give me a full explanation about our
+                                        project</div>
+                                </div>
+                                <div>
+                                    <div class="last-chat-time block">7:30 PM</div>
+                                    <div class="badge badge-success badge-pill">3</div>
+                                </div>
+                            </div>
+                        </a>
+                       
+                        
+                        
+                       
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="chat-cont-right">
+               <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

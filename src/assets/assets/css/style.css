@@ -541,14 +541,14 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 }
 
 .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.focus:active, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
-    background-color: #621aff;
-    border: 1px solid #621aff
+    /* background-color: #621aff;
+    border: 1px solid #621aff */
 }
 
 .btn-primary.active:not(:disabled):not(.disabled), .btn-primary:active:not(:disabled):not(.disabled), .show>.btn-primary.dropdown-toggle {
-    background-color: #621aff;
+    /* background-color: #621aff;
     border-color: #621aff;
-    color: #fff
+    color: #fff */
 }
 
 .btn-primary.active:focus:not(:disabled):not(.disabled), .btn-primary:active:focus:not(:disabled):not(.disabled), .show>.btn-primary.dropdown-toggle:focus {
@@ -556,9 +556,9 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
-    background-color: #7638ff;
+    /* background-color: #7638ff;
     border-color: #7638ff;
-    color: #fff
+    color: #fff */
 }
 
 .btn-secondary.active:focus:not(:disabled):not(.disabled), .btn-secondary:active:focus:not(:disabled):not(.disabled), .show>.btn-secondary.dropdown-toggle:focus {
@@ -3115,7 +3115,8 @@ table.table-inbox tbody tr.checked {
 
 .page-title {
     color: #333;
-    margin-bottom: 5px
+    margin-bottom: 5px;
+    font-weight: 600;
 }
 
 .login-body {

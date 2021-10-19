@@ -21,6 +21,9 @@ import { NurseComponent } from './nurse/nurse.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { ConsultationComponent } from './consultation/consultation.component';
+import { JobapplicationComponent } from './jobapplication/jobapplication.component';
+import { ChatComponent } from './chat/chat.component';
+import { MessageComponent } from './message/message.component';
 
 
 
@@ -39,7 +42,10 @@ import { ConsultationComponent } from './consultation/consultation.component';
     NurseComponent,
     EditprofileComponent,
     AppointmentComponent,
-    ConsultationComponent
+    ConsultationComponent,
+    JobapplicationComponent,
+    ChatComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

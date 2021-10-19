@@ -5,9 +5,9 @@
             
         </div>
         <div class="col-auto">
-            <a href="add-estimate.html" class="btn btn-primary me-1">
-                <i class="fas fa-plus"></i>
-            </a>
+            <button class="btn btn-primary">
+                <i class="fas fa-plus"></i> Add Doctor
+            </button>
             
         </div>
     </div>
@@ -70,12 +70,12 @@
                     <table class="table table-stripped table-hover datatable">
                         <thead class="thead-light">
                             <tr>
-                                <th>Estimate Number</th>
-                                <th>Customer</th>
-                                <th>Estimate Date</th>
-                                <th>Expiry Date</th>
-                                <th>Amount</th>
-                                <th>Status</th>
+                                <th>Major</th>
+                                <th>Doctor</th>
+                                <th>Email Address</th>
+                                <th>Employment Date</th>
+                                <th>Address</th>
+                                <!-- <th>Status</th> -->
                                 <th class="text-end">Action</th>
                             </tr>
                         </thead>
@@ -84,48 +84,93 @@
                                 <td><a href="view-estimate.html">EST-17ER281</a></td>
                                 <td>
                                     <h2 class="table-avatar">
-                                        <a href="profile.html"><img
+                                       <img
                                                 class="avatar avatar-sm me-2 avatar-img rounded-circle"
                                                 src="../../assets/images/avatar.svg"
-                                                alt="User Image"> Marie Canales</a>
+                                                alt="User Image"> Marie Canales
                                     </h2>
                                 </td>
                                 <td>16 Nov 2020</td>
                                 <td>22 Nov 2020</td>
                                 <td>$100</td>
-                                <td><span class="badge bg-success-light">Accepted</span></td>
+                                <!-- <td><span class="badge bg-success-light">Accepted</span></td> -->
                                 <td class="text-end">
                                     <div class="dropdown dropdown-action">
                                         <a href="#" class="action-icon dropdown-toggle"
                                             data-bs-toggle="dropdown" aria-expanded="false"><i
                                                 class="fas fa-ellipsis-h"></i></a>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="edit-invoice.html"><i
-                                                    class="far fa-edit me-2"></i>Edit</a>
+                                            <!-- <a class="dropdown-item" href="edit-invoice.html"><i
+                                                    class="far fa-edit me-2"></i>Edit</a> -->
                                             <a class="dropdown-item" href="javascript:void(0);"><i
                                                     class="far fa-trash-alt me-2"></i>Delete</a>
-                                            <a class="dropdown-item" href="view-estimate.html"><i
-                                                    class="far fa-eye me-2"></i>View</a>
-                                            <a class="dropdown-item" href="javascript:void(0);"><i
+                                            <!-- <a class="dropdown-item" href="view-estimate.html"><i
+                                                    class="far fa-eye me-2"></i>View</a> -->
+                                            <!-- <a class="dropdown-item" href="javascript:void(0);"><i
                                                     class="far fa-file-alt me-2"></i>Convert to
-                                                Invoice</a>
-                                            <a class="dropdown-item" href="javascript:void(0);"><i
+                                                Invoice</a> -->
+                                            <!-- <a class="dropdown-item" href="javascript:void(0);"><i
                                                     class="far fa-check-circle me-2"></i>Mark as
-                                                sent</a>
+                                                sent</a> -->
                                             <a class="dropdown-item" href="javascript:void(0);"><i
-                                                    class="far fa-paper-plane me-2"></i>Send
-                                                Estimate</a>
-                                            <a class="dropdown-item" href="javascript:void(0);"><i
+                                                    class="far fa-paper-plane me-2"></i>Ping
+                                                Doctor</a>
+                                            <!-- <a class="dropdown-item" href="javascript:void(0);"><i
                                                     class="far fa-check-circle me-2"></i>Mark as
-                                                Accepted</a>
-                                            <a class="dropdown-item" href="javascript:void(0);"><i
+                                                Accepted</a> -->
+                                            <!-- <a class="dropdown-item" href="javascript:void(0);"><i
                                                     class="far fa-times-circle me-2"></i>Mark as
-                                                Rejected</a>
+                                                Rejected</a> -->
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
+                                <td><a href="view-estimate.html">EST-17ER281</a></td>
+                                <td>
+                                    <h2 class="table-avatar">
+                                       <img
+                                                class="avatar avatar-sm me-2 avatar-img rounded-circle"
+                                                src="../../assets/images/avatar.svg"
+                                                alt="User Image"> Marie Canales
+                                    </h2>
+                                </td>
+                                <td>16 Nov 2020</td>
+                                <td>22 Nov 2020</td>
+                                <td>$100</td>
+                                <!-- <td><span class="badge bg-success-light">Accepted</span></td> -->
+                                <td class="text-end">
+                                    <div class="dropdown dropdown-action">
+                                        <a href="#" class="action-icon dropdown-toggle"
+                                            data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                class="fas fa-ellipsis-h"></i></a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <!-- <a class="dropdown-item" href="edit-invoice.html"><i
+                                                    class="far fa-edit me-2"></i>Edit</a> -->
+                                            <a class="dropdown-item" href="javascript:void(0);"><i
+                                                    class="far fa-trash-alt me-2"></i>Delete</a>
+                                            <!-- <a class="dropdown-item" href="view-estimate.html"><i
+                                                    class="far fa-eye me-2"></i>View</a> -->
+                                            <!-- <a class="dropdown-item" href="javascript:void(0);"><i
+                                                    class="far fa-file-alt me-2"></i>Convert to
+                                                Invoice</a> -->
+                                            <!-- <a class="dropdown-item" href="javascript:void(0);"><i
+                                                    class="far fa-check-circle me-2"></i>Mark as
+                                                sent</a> -->
+                                            <a class="dropdown-item" href="javascript:void(0);"><i
+                                                    class="far fa-paper-plane me-2"></i>Ping
+                                                Doctor</a>
+                                            <!-- <a class="dropdown-item" href="javascript:void(0);"><i
+                                                    class="far fa-check-circle me-2"></i>Mark as
+                                                Accepted</a> -->
+                                            <!-- <a class="dropdown-item" href="javascript:void(0);"><i
+                                                    class="far fa-times-circle me-2"></i>Mark as
+                                                Rejected</a> -->
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- <tr>
                                 <td><a href="view-estimate.html">EST-26AS699</a></td>
                                 <td>
                                     <h2 class="table-avatar">
@@ -259,8 +304,8 @@
                                         </div>
                                     </div>
                                 </td>
-                            </tr>
-                            <tr>
+                            </tr> -->
+                            <!-- <tr>
                                 <td><a href="view-estimate.html">EST-71DR001</a></td>
                                 <td>
                                     <h2 class="table-avatar">
@@ -304,8 +349,8 @@
                                         </div>
                                     </div>
                                 </td>
-                            </tr>
-                            <tr>
+                            </tr> -->
+                            <!-- <tr>
                                 <td><a href="view-estimate.html">EST-68MN425</a></td>
                                 <td>
                                     <h2 class="table-avatar">
@@ -349,8 +394,8 @@
                                         </div>
                                     </div>
                                 </td>
-                            </tr>
-                            <tr>
+                            </tr> -->
+                            <!-- <tr>
                                 <td><a href="view-estimate.html">EST-86YU963</a></td>
                                 <td>
                                     <h2 class="table-avatar">
@@ -394,7 +439,7 @@
                                         </div>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>
