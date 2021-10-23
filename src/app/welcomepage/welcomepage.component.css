@@ -43,6 +43,7 @@
 .img-fluid{
     height: 100px;
     transition: 0.4s;
+    margin-left: 30px;
 }
 
 .welcomediv {
@@ -80,7 +81,7 @@
     background-color: #24447C;
     color: #3BA5A5;
 }
-.fade{
+.fade1{
     animation: myfade 6s ;
 }
 @keyframes myfade {

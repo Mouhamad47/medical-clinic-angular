@@ -1,9 +1,11 @@
+
+
 <div style="background-color:white;">
   <nav [ngClass]="{scrollnav: scroll===false}"
     class="navbar sticky-top navbar-expand-lg navbar-light justify-content-end">
     <div class="container-fluid">
       <img [ngClass]="{scrollimg: scroll===false}" class="img-fluid" src="assets/images/logo1.png" alt="..">
-      <a class="navbar-brand" href="#">Medical Clinic</a>
+      <!-- <a class="navbar-brand" href="#">MedClick</a> -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -22,29 +24,24 @@
           <li class="nav-item">
             <a [ngClass]="{scrollnavlink: scroll===false}" class="nav-link" href="#" [routerLink]="'/login'">Login </a>
           </li>
-          <!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown link
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li> -->
+          
         </ul>
       </div>
     </div>
   </nav>
 
   <div class="welcomediv">
-    <img [ngClass]="{fade : fade===true}" src="assets/images/startup1.jpg" alt="">
+    <img [ngClass]="{fade1 : fade===true}" src="assets/images/startup1.jpg" alt="">
     <div [ngClass]="{headerpicanimation: headeranimation===true}" class="imgcaption">
       <h1 class="mb-4">We care <span>about your health</span> </h1>
       <h3 class="subheading">Your Health is Our Top Priority with Comprehensive, Affordable medical</h3>
-      <button class="btn btn-primary" [routerLink]="'/appointment'"> Make an appointment</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        data-bs-whatever="@getbootstrap"> Make an appointment</button>
+      <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button> -->
+
     </div>
   </div>
+
 
   <!-- Section Devision -->
 
@@ -284,4 +281,59 @@
 
     </div>
   </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Appointments</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="recipient-name" class="col-form-label">Firstname:</label>
+                <input type="text" class="form-control" id="recipient-name">
+              </div>
+              <div class="col-md-6  ">
+                <label for="recipient-name" class="col-form-label">Last name:</label>
+                <input type="text" class="form-control" id="recipient-name">
+              </div>
+              <div class="col-md-6">
+                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                <input type="text" class="form-control" id="recipient-name">
+              </div>
+              <div class="col-md-6">
+                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                <input type="text" class="form-control" id="recipient-name">
+              </div>
+              <div class="col-md-6">
+                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                <input type="text" class="form-control" id="recipient-name">
+              </div>
+              <div class="col-md-6">
+                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                <input type="text" class="form-control" id="recipient-name">
+              </div>
+              <div class="col-md-6">
+                <label for="recipient-date" class="col-form-label">Time:</label>
+                <input type="time" step="3600000" class="form-control" id="recipient-date">
+              </div>
+              <div class="col-md-6">
+                <label for="recipient-name" class="col-form-label">Date:</label>
+                <input type="date" min="2021-10-05" class="form-control" id="recipient-name">
+              </div>
+            </div>
+            
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Send message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <app-footer></app-footer>

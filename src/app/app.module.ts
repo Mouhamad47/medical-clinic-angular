@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, FormGroup, } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminComponent } from './admin/admin.component';
-import { RegisteruserComponent } from './registeruser/registeruser.component';
+// import { RegisteruserComponent } from './registeruser/registeruser.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { NurseComponent } from './nurse/nurse.component';
@@ -24,6 +24,9 @@ import { ConsultationComponent } from './consultation/consultation.component';
 import { JobapplicationComponent } from './jobapplication/jobapplication.component';
 import { ChatComponent } from './chat/chat.component';
 import { MessageComponent } from './message/message.component';
+import { BookappointmentComponent } from './bookappointment/bookappointment.component';
+import { CandidateComponent } from './candidate/candidate.component';
+// import { TestComponent } from './test/test.component';
 
 
 
@@ -36,7 +39,6 @@ import { MessageComponent } from './message/message.component';
     LoginComponent,
     AdminComponent,
     FooterComponent,
-    RegisteruserComponent,
     DashboardComponent,
     DoctorComponent,
     NurseComponent,
@@ -45,7 +47,10 @@ import { MessageComponent } from './message/message.component';
     ConsultationComponent,
     JobapplicationComponent,
     ChatComponent,
-    MessageComponent
+    MessageComponent,
+    BookappointmentComponent,
+    CandidateComponent,
+    
   ],
   imports: [
     BrowserModule,

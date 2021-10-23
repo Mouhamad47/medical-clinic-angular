@@ -1,0 +1,52 @@
+body{
+    margin-top:20px;
+    background:#f4ffff;
+}
+
+
+.candidates-img img {
+  max-width: 90px;
+}
+
+.fav-icon i {
+  -webkit-text-stroke: 2px #ff4f6c;
+  -webkit-text-fill-color: transparent;
+}
+
+.fav-icon i:hover {
+  -webkit-text-stroke: 0px #ff4f6c;
+  -webkit-text-fill-color: #ff4f6c;
+}
+
+
+
+.list-grid-item {
+  border: 1px solid #ececec;
+  border-radius: 6px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.list-grid-item:hover {
+  -webkit-box-shadow: 0 0 20px 0px rgba(47, 47, 47, 0.09);
+          box-shadow: 0 0 20px 0px rgba(47, 47, 47, 0.09);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  border-color: transparent;
+}
+
+.custom-control {
+    margin: 11px 20px;
+}
+
+.f-14 {
+    font-size: 14px;
+}
+
+.btn-outline {
+    color: #ff4f6c;
+    border-color: #ff4f6c;
+}
+.btn-sm {
+    padding: 8px 22px;
+}

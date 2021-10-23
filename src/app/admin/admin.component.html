@@ -149,9 +149,9 @@
                     <li [routerLinkActive]="['active']" >
                         <a [routerLink]="'dashboard'"><i class="fas fa-columns"></i> <span>Dashboard</span></a>
                     </li>
-                    <li [routerLinkActive]="['active']">
+                    <!-- <li [routerLinkActive]="['active']">
                         <a [routerLink]="'registeruser'"><i class="fas fa-users"></i> <span>Register User</span></a>
-                    </li>
+                    </li> -->
                     <li [routerLinkActive]="['active']" >
                         <a [routerLink]="'doctors'" ><i class="fas fa-user-md"></i> <span>Doctors</span></a>
                     </li>
@@ -168,8 +168,8 @@
                         <a [routerLink]="'chat'"><i class="fas fa-user-md-chat"></i> <span> Chat</span> </a>
                         
                     </li>
-                    <li >
-                        <a [routerLink]="'registeruser'" ><i class="fad fa-poll-people"></i> <span>Candidates</span></a>
+                    <li [routerLinkActive]="['active']"  >
+                        <a [routerLink]="'candidates'" ><i class="fad fa-poll-people"></i> <span>Candidates</span></a>
                     </li>
                     <li [routerLinkActive]="['active']"  >
                         <a [routerLink]="'editprofile'" ><i class="fas fa-cogs"></i> <span> Edit Profile</span> </a>
