@@ -11,7 +11,7 @@ import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, FormGroup, } from '@angular/forms';
+import { FormsModule, FormGroup, ReactiveFormsModule, } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminComponent } from './admin/admin.component';
 // import { RegisteruserComponent } from './registeruser/registeruser.component';
@@ -58,7 +58,8 @@ import { CandidateComponent } from './candidate/candidate.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
     
     
    

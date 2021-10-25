@@ -35,98 +35,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr *ngFor = "let appointment of allAppointments; let i=index ">
                                 <td>
                                     <h2 class="table-avatar">
                                         <a href="profile.html" class="avatar avatar-sm me-2"><img
                                                 class="avatar-img rounded-circle"
                                                 src="../../assets/images/avatar.svg"
                                                 alt="User Image"></a>
-                                        <a>Brian Johnson</a>
+                                        <a>{{appointment.first_name}} {{appointment.last_name}}</a>
                                     </h2>
                                 </td>
                                 <td>
-                                    Tripoli
+                                    {{appointment.address}}
                                 </td>
-                                <td>70140960</td>
-                                <td>10:00 til 10:30</td>
-                                <td>16 Nov 2020</td>
-                                <td>Kids</td>
+                                <td>{{appointment.phone_number}}</td>
+                                <td>{{appointment.start_hour}} til {{appointment.end_hour}}</td>
+                                <td>{{appointment.date_of_appointment}}</td>
+                                <td>{{appointment.section.name}}</td>
                                 <td >
-                                    <button class="btn btn-primary">Approve </button>
+                                    <button class="btn btn-primary"  >Approve </button>
                                     
-                                    <button class="btn btn-danger">Decline</button>
+                                    <button class="btn btn-danger" (click) ="declineAppointment(appointment.id,i)" >Decline</button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar avatar-sm me-2"><img
-                                                class="avatar-img rounded-circle"
-                                                src="../../assets/images/avatar.svg"
-                                                alt="User Image"></a>
-                                        <a>Brian Johnson</a>
-                                    </h2>
-                                </td>
-                                <td>
-                                    Tripoli
-                                </td>
-                                <td>70140960</td>
-                                <td>10:00 til 10:30</td>
-                                <td>16 Nov 2020</td>
-                                <td>Kids</td>
-                                <td >
-                                    <button class="btn btn-primary">Approve </button>
-                                    
-                                    <button class="btn btn-danger">Decline</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar avatar-sm me-2"><img
-                                                class="avatar-img rounded-circle"
-                                                src="../../assets/images/avatar.svg"
-                                                alt="User Image"></a>
-                                        <a>Brian Johnson</a>
-                                    </h2>
-                                </td>
-                                <td>
-                                    Tripoli
-                                </td>
-                                <td>70140960</td>
-                                <td>10:00 til 10:30</td>
-                                <td>16 Nov 2020</td>
-                                <td>Kids</td>
-                                <td >
-                                    <button class="btn btn-primary">Approve </button>
-                                    
-                                    <button class="btn btn-danger">Decline</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar avatar-sm me-2"><img
-                                                class="avatar-img rounded-circle"
-                                                src="../../assets/images/avatar.svg"
-                                                alt="User Image"></a>
-                                        <a>Brian Johnson</a>
-                                    </h2>
-                                </td>
-                                <td>
-                                    Tripoli
-                                </td>
-                                <td>70140960</td>
-                                <td>10:00 til 10:30</td>
-                                <td>16 Nov 2020</td>
-                                <td>Kids</td>
-                                <td >
-                                    <button class="btn btn-primary">Approve </button>
-                                    
-                                    <button class="btn btn-danger">Decline</button>
-                                </td>
-                            </tr>
+                            
+                            
+                            
                         </tbody>
                     </table>
                 </div>

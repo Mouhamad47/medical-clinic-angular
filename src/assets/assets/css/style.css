@@ -455,11 +455,11 @@ table .badge {
 }
 
 .bg-primary, .badge-primary {
-    background-color: #7638ff!important
+    background-color: #3BA5A5!important
 }
 
 a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover {
-    background-color: #621aff!important
+    background-color: #3BA5A5!important
 }
 
 .bg-success, .badge-success {
@@ -471,11 +471,11 @@ a.bg-success:focus, a.bg-success:hover, button.bg-success:focus, button.bg-succe
 }
 
 .bg-info, .badge-info {
-    background-color: #009efb!important
+    background-color: #3BA5A5!important
 }
 
 a.bg-info:focus, a.bg-info:hover, button.bg-info:focus, button.bg-info:hover {
-    background-color: #028ee1!important
+    background-color: #3BA5A5!important
 }
 
 .bg-warning, .badge-warning {
@@ -499,11 +499,11 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 }
 
 .bg-purple, .badge-purple {
-    background-color: #9368e9!important
+    background-color: #3BA5A5!important
 }
 
 .text-primary, .dropdown-menu>li>a.text-primary {
-    color: #7638ff!important
+    color: #3BA5A5!important
 }
 
 .text-success, .dropdown-menu>li>a.text-success {
@@ -515,7 +515,7 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 }
 
 .text-info, .dropdown-menu>li>a.text-info {
-    color: #009efb!important
+    color: #3BA5A5!important
 }
 
 .text-warning, .dropdown-menu>li>a.text-warning {
@@ -523,7 +523,7 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 }
 
 .text-purple, .dropdown-menu>li>a.text-purple {
-    color: #7460ee!important
+    color: #3BA5A5!important
 }
 
 .text-muted {
@@ -708,8 +708,8 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 }
 
 .btn-outline-primary:hover {
-    background-color: #7638ff;
-    border-color: #7638ff
+    background-color: #3BA5A5;
+    border-color: #3BA5A5
 }
 
 .btn-outline-primary:focus, .btn-outline-primary.focus {
@@ -717,13 +717,13 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 }
 
 .btn-outline-primary.disabled, .btn-outline-primary:disabled {
-    color: #7638ff;
+    color: #3BA5A5;
     background-color: transparent
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show>.btn-outline-primary.dropdown-toggle {
-    background-color: #7638ff;
-    border-color: #7638ff
+    background-color: #3BA5A5;
+    border-color: #3BA5A5
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show>.btn-outline-primary.dropdown-toggle:focus {
@@ -856,16 +856,16 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 }
 
 .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
-    background-color: #7638ff;
-    border-color: #7638ff
+    background-color: #3BA5A5;
+    border-color: #3BA5A5
 }
 
 .pagination>li>a, .pagination>li>span {
-    color: #7638ff
+    color: #3BA5A5
 }
 
 .page-link:hover {
-    color: #7638ff
+    color: #3BA5A5
 }
 
 .page-link:focus {
@@ -873,8 +873,8 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 }
 
 .page-item.active .page-link {
-    background-color: #7638ff;
-    border-color: #7638ff
+    background-color: #3BA5A5;
+    border-color: #3BA5A5
 }
 
 .dropdown-menu {
@@ -955,12 +955,12 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 }
 
 .bootstrap-datetimepicker-widget table td.active, .bootstrap-datetimepicker-widget table td.active:hover {
-    background-color: #7638ff;
+    background-color: #3BA5A5;
     text-shadow: unset
 }
 
 .bootstrap-datetimepicker-widget table td.today:before {
-    border-bottom-color: #7638ff
+    border-bottom-color: #3BA5A5
 }
 
 .bg-info-light {
@@ -1111,7 +1111,7 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-    background-color: #7638ff
+    background-color: #3BA5A5
 }
 
 .select2-container--default .select2-selection--multiple {
@@ -1143,8 +1143,8 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 }
 
 .nav-tabs.nav-tabs-solid>.active>a, .nav-tabs.nav-tabs-solid>.active>a:hover, .nav-tabs.nav-tabs-solid>.active>a:focus {
-    background-color: #7638ff;
-    border-color: #7638ff;
+    background-color: #3BA5A5;
+    border-color: #3BA5A5;
     color: #fff
 }
 
@@ -1181,8 +1181,8 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 }
 
 .nav-tabs.nav-tabs-solid>li>a.active, .nav-tabs.nav-tabs-solid>li>a.active:hover, .nav-tabs.nav-tabs-solid>li>a.active:focus {
-    background-color: #7638ff;
-    border-color: #7638ff;
+    background-color: #3BA5A5;
+    border-color: #3BA5A5;
     color: #fff;
     padding: 10px 30px
 }
@@ -1237,7 +1237,7 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 }
 
 .nav-tabs.nav-tabs-top>li>a.active, .nav-tabs.nav-tabs-top>li>a.active:hover, .nav-tabs.nav-tabs-top>li>a.active:focus {
-    border-top-color: #7638ff
+    border-top-color: #3BA5A5
 }
 
 .nav-tabs.nav-tabs-bottom>li {
@@ -1247,7 +1247,7 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 .nav-tabs.nav-tabs-bottom>li>a.active, .nav-tabs.nav-tabs-bottom>li>a.active:hover, .nav-tabs.nav-tabs-bottom>li>a.active:focus {
     border-bottom-width: 2px;
     border-color: transparent;
-    border-bottom-color: #7638ff;
+    border-bottom-color: #3BA5A5;
     background-color: transparent;
     transition: none 0s ease 0s;
     -moz-transition: none 0s ease 0s;
@@ -1295,7 +1295,7 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 }
 
 .line {
-    background-color: #7638ff;
+    background-color: #3BA5A5;
     height: 2px;
     margin: 0;
     width: 60px
@@ -1364,7 +1364,7 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 .avatar-title {
     width: 100%;
     height: 100%;
-    background-color: #7638ff;
+    background-color: #3BA5A5;
     color: #fff;
     display: flex;
     align-items: center;
@@ -1669,12 +1669,12 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 }
 
 .user-menu .dropdown-menu .dropdown-item:hover {
-    color: #7638ff;
+    color: #3BA5A5;
     background-color: transparent
 }
 
 .header .dropdown-menu>li>a:focus, .header .dropdown-menu>li>a:hover {
-    background-color: #7638ff;
+    background-color: #3BA5A5;
     color: #fff
 }
 
@@ -1687,14 +1687,14 @@ a.bg-danger:focus, a.bg-danger:hover, button.bg-danger:focus, button.bg-danger:h
 }
 
 .header .dropdown-menu>li>a i {
-    color: #7638ff;
+    color: #3BA5A5;
     margin-right: 10px;
     text-align: center;
     width: 18px
 }
 
 .header .user-menu .dropdown-menu>li>a i {
-    color: #7638ff;
+    color: #3BA5A5;
     font-size: 16px;
     margin-right: 10px;
     min-width: 18px;

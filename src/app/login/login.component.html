@@ -2,17 +2,17 @@
   <div class="container">
     <div class="forms-container">
       <div class="signin-signup">
-        <form action="#" class="sign-in-form">
+        <form #loginform="ngForm" class="sign-in-form">
           <h2 class="title">Sign in</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" />
+            <input type="email" placeholder="Email Address" name="email" [(ngModel)]="users.email" #email="ngModel" />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" />
+            <input type="password" placeholder="Password" name="password" [(ngModel)]="users.password" #password="ngModel" required />
           </div>
-          <input type="submit" value="Login" class="btn solid" />
+          <input type="submit" value="Login" class="btn solid" [disabled]="loginform.value.email==='' && loginform.value.password===''" (click)="login(loginform)" />
          
         </form>
       </div>

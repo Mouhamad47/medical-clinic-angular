@@ -1,6 +1,8 @@
-
+a ,h4 {
+    color: white;
+}
 .footer{
-    background-color: #7ACDCD;
+    background-color: #5B749C;
     padding: 70px;
     position: relative;
 }
@@ -10,7 +12,7 @@
 .footer-content span{
     font-size: 20px;
     font-weight: 700;
-    color: #24447C;
+    color: white;
 }
 .img-fluid{
     margin-left: -13px;
@@ -20,7 +22,7 @@ h4{
 }
 h4::before{
     content: "|";
-    color: #24447C;
+    color: white;
     font-weight: 700;
 }
 .usefullinks ul{
@@ -29,12 +31,12 @@ h4::before{
     list-style: none;
 }
 .usefullinks ul li{
-    border-bottom: 1px solid #24447C;  
+    border-bottom: 1px solid white;  
     line-height: 40px;
 }
 .usefullinks ul li a{
     text-decoration: none;
-    color: rgb(12, 40, 122);
+    color: white
 }
 .overlay{
     position: absolute;
@@ -44,5 +46,9 @@ h4::before{
     bottom: 0;
     content: '';
     opacity: 0.05;
-    background-image: url('/assets/images/backgroundfooter.jpg');
+    /* background-image: url('/assets/images/backgroundfooter.jpg'); */
+}
+p{
+    color: white;
+    font-weight: 400;
 }

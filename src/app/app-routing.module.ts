@@ -1,4 +1,3 @@
-// import { TestComponent } from './test/test.component';
 import { CandidateComponent } from './candidate/candidate.component';
 import { BookappointmentComponent } from './bookappointment/bookappointment.component';
 import { MessageComponent } from './message/message.component';
@@ -9,7 +8,6 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { NurseComponent } from './nurse/nurse.component';
 import { DoctorComponent } from './doctor/doctor.component';
-// import { RegisteruserComponent } from './registeruser/registeruser.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';

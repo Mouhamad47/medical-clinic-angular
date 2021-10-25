@@ -10,13 +10,19 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  constructor(private http:HttpClient, private apiservice:ApiService,private route:ActivatedRoute, private router:Router) { }
+  constructor(private http: HttpClient, private apiservice: ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    
+
+  }
+  logOut() {
+    this.apiservice.logOut();
+    window.history.forward();
+    this.router.navigate(['/login']);
+
+
   }
 
 
-  
 
 }
