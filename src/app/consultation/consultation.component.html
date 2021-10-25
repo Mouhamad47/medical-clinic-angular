@@ -33,98 +33,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr *ngFor= "let consultation of allConsultations;let i= index ">
                                 <td>
                                     <h2 class="table-avatar">
                                         <a href="profile.html" class="avatar avatar-sm me-2"><img
                                                 class="avatar-img rounded-circle"
                                                 src="../../assets/images/avatar.svg"
                                                 alt="User Image"></a>
-                                        <a>Brian Johnson</a>
+                                        <a>{{consultation.first_name}} {{consultation.last_name}}</a>
                                     </h2>
                                 </td>
                                 <td>
-                                    Tripoli
+                                    {{consultation.address}}
                                 </td>
-                                <td>70140960</td>
-                                <td>10:00 til 10:30</td>
-                                <td>16 Nov 2020</td>
-                                <td>Kids</td>
+                                <td>{{consultation.phone_number}}</td>
+                                <td>{{consultation.start_hour}} til {{consultation.end_hour}}</td>
+                                <td>{{consultation.date_of_consultation}}</td>
+                                <td>{{consultation.major.name}}</td>
                                 <td >
                                     <button class="btn btn-primary">Approve </button>
                                     
                                     <button class="btn btn-danger">Decline</button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar avatar-sm me-2"><img
-                                                class="avatar-img rounded-circle"
-                                                src="../../assets/images/avatar.svg"
-                                                alt="User Image"></a>
-                                        <a>Brian Johnson</a>
-                                    </h2>
-                                </td>
-                                <td>
-                                    Tripoli
-                                </td>
-                                <td>70140960</td>
-                                <td>10:00 til 10:30</td>
-                                <td>16 Nov 2020</td>
-                                <td>Kids</td>
-                                <td >
-                                    <button class="btn btn-primary">Approve </button>
-                                    
-                                    <button class="btn btn-danger">Decline</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar avatar-sm me-2"><img
-                                                class="avatar-img rounded-circle"
-                                                src="../../assets/images/avatar.svg"
-                                                alt="User Image"></a>
-                                        <a>Brian Johnson</a>
-                                    </h2>
-                                </td>
-                                <td>
-                                    Tripoli
-                                </td>
-                                <td>70140960</td>
-                                <td>10:00 til 10:30</td>
-                                <td>16 Nov 2020</td>
-                                <td>Kids</td>
-                                <td >
-                                    <button class="btn btn-primary">Approve </button>
-                                    
-                                    <button class="btn btn-danger">Decline</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar avatar-sm me-2"><img
-                                                class="avatar-img rounded-circle"
-                                                src="../../assets/images/avatar.svg"
-                                                alt="User Image"></a>
-                                        <a>Brian Johnson</a>
-                                    </h2>
-                                </td>
-                                <td>
-                                    Tripoli
-                                </td>
-                                <td>70140960</td>
-                                <td>10:00 til 10:30</td>
-                                <td>16 Nov 2020</td>
-                                <td>Kids</td>
-                                <td >
-                                    <button class="btn btn-primary">Approve </button>
-                                    
-                                    <button class="btn btn-danger">Decline</button>
-                                </td>
-                            </tr>
+                           
+                            
+                            
                         </tbody>
                     </table>
                 </div>

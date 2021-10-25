@@ -1,4 +1,8 @@
+import { Consultation } from './../classes/consultation';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-consultation',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultationComponent implements OnInit {
 
-  constructor() { }
+  allConsultations : Consultation[];
+
+  constructor(private httpClient: HttpClient, private apiservice: ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.getAllConsultations();
+
+  }
+  getAllConsultations(){
+    this.apiservice.selectConsultations().subscribe(data=>{
+      this.allConsultations = data;
+      console.log(data);
+    })
   }
 
 }

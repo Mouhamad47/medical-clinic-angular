@@ -1,3 +1,4 @@
+import { Consultation } from './classes/consultation';
 import { JobApplication } from './classes/jobapplication';
 import { User } from './classes/user';
 
@@ -24,6 +25,7 @@ export class ApiService {
       'Authorization': 'Bearer ' + this.getToken()
     },
   }
+  
   // UserInfo = this.getUserDetails();
   // username = this.UserInfo['firstname'];
   // userrole = this.UserInfo['roles'];
@@ -65,7 +67,9 @@ export class ApiService {
   addJobApp(JobApplication: JobApplication) {
     return this.httpClient.post<JobApplication>(`${this.url}/api/createjobapp`, JobApplication);
   }
-
+  selectUserInfo():Observable<User[]>{
+    return this.httpClient.get<User[]>(`${this.url}/api/userinfo`, this.usertoken);
+  }
   selectAllDoctors():Observable<User[]>{
     return this.httpClient.get<User[]>(`${this.url}/api/getalldoctors`, this.usertoken);
   }
@@ -81,11 +85,17 @@ export class ApiService {
   selectAppointments():Observable<Appointment[]>{
     return this.httpClient.get<Appointment[]>(`${this.url}/api/getappointments`, this.usertoken);
   }
+  selectConsultations():Observable<Consultation[]>{
+    return this.httpClient.get<Consultation[]>(`${this.url}/api/getconsultations`, this.usertoken);
+  }
+  selectCandidates():Observable<JobApplication[]>{
+    return this.httpClient.get<JobApplication[]>(`${this.url}/api/getjobapp`, this.usertoken);
+  }
   register(User: User){
     return this.httpClient.post<User>(`${this.url}/api/register`, User, this.usertoken);
   }
   deleteAppointment(id:number){
-    return this.httpClient.delete<Appointment>(`${this.url}/api/deleteappointment/id=`+id, this.usertoken);
+    return this.httpClient.get<Appointment>(`${this.url}/api/deleteappointment/id=`+id, this.usertoken);
   }
 
 

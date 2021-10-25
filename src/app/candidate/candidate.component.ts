@@ -1,4 +1,8 @@
+import { JobApplication } from './../classes/jobapplication';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-candidate',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandidateComponent implements OnInit {
 
-  constructor() { }
+  candidates : JobApplication[];
+
+  constructor(private httpClient: HttpClient, private apiservice: ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.getAllCandidates();
+  }
+
+  getAllCandidates(){
+    this.apiservice.selectCandidates().subscribe(data=>{
+      this.candidates = data;
+      console.log(data);
+    })
   }
 
 }
