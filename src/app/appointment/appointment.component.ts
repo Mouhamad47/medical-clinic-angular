@@ -25,13 +25,23 @@ export class AppointmentComponent implements OnInit {
       console.log(data);
     })
   }
+  
   declineAppointment(id:number,i:number){
     this.apiservice.deleteAppointment(id).subscribe((Appointment:Appointment)=>{
-      // this.allAppointments.splice(i,1);
+      this.allAppointments.splice(i,1);
       console.log(id);
       alert("Appointment has been declined");
     })
   }
+
+  approveAppointment(id:number,i:number){
+    this.apiservice.approveAppointments(id).subscribe((Appointment:Appointment)=>{
+      this.allAppointments.splice(i,1);
+      console.log(id);
+      alert("Appointment has been Approved");
+    })
+  }
+  
 
 
 

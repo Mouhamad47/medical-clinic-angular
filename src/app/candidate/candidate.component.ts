@@ -25,5 +25,12 @@ export class CandidateComponent implements OnInit {
       console.log(data);
     })
   }
+  approveCandidate(id:number, i:number){
+    this.apiservice.deleteCandidate(id).subscribe((JobApplication:JobApplication)=>{
+      this.candidates.splice(i,1);
+      console.log("Candidate declined");
+    })
+    console.log(id);
+  }
 
 }

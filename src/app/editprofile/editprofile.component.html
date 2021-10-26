@@ -8,14 +8,14 @@
 </div>
 <div class="row">
    
-    <div class="col-xl-12 col-md-8">
+    <div class="col-xl-6 col-md-8">
         <div class="card">
             <div class="card-header">
                 <h5 class="card-title">Basic information</h5>
             </div>
             <div class="card-body">
 
-                <form [formGroup] = "editProfileForm">
+                <form [formGroup] = "editProfileForm" (ngSubmit)="updateProfile()">
                     <div class="row form-group">
                         <label for="name" class="col-sm-3 col-form-label input-label">Profile</label>
                         <div class="col-sm-9">
@@ -35,37 +35,22 @@
                     </div>
                     <div class="row form-group">
                         <label for="name" class="col-sm-3 col-form-label input-label">First Name</label>
-                        <div class="col-sm-5">
+                        <div class="col-sm-9">
                             <input type="text" class="form-control" id="name" placeholder="Your first name"
                                 value=""  formControlName="first_name" >
                         </div>
                     </div>
                     <div class="row form-group">
                         <label for="name" class="col-sm-3 col-form-label input-label">Last Name</label>
-                        <div class="col-sm-5">
+                        <div class="col-sm-9">
                             <input type="text" class="form-control" id="name" placeholder="Your last name"
                                 value=""  formControlName="last_name">
                         </div>
                     </div>
                    
                     <div class="row form-group">
-                        <label for="email" class="col-sm-3 col-form-label input-label">Password</label>
-                        <div class="col-sm-5">
-                            <input type="password" class="form-control" id="email" placeholder="New password"
-                                value=""  formControlName="password">
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <label for="phone" class="col-sm-3 col-form-label input-label">Phone </label>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" id="phone"
-                                placeholder="Enter your phone number" value=""  formControlName="phone_number">
-                        </div>
-                    </div>
-                   
-                    <div class="row form-group">
                         <label for="addressline1" class="col-sm-3 col-form-label input-label">Address</label>
-                        <div class="col-sm-5">
+                        <div class="col-sm-9">
                             <input type="text" class="form-control" id="addressline1"
                                 placeholder="Your address" value=""  formControlName="address">
                         </div>
@@ -73,6 +58,56 @@
                     
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Change Password</h5>
+            </div>
+            <div class="card-body">
+
+                <form [formGroup] = "editPassowrd" >
+                    <div class="row form-group">
+                        <label for="current_password"
+                            class="col-sm-3 col-form-label input-label">Current Password</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" id="current_password"
+                                placeholder="Enter current password" formControlName="current_password"  >
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="new_password" class="col-sm-3 col-form-label input-label">New
+                            Password</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" id="new_password"
+                                placeholder="Enter new password" formControlName="new_password">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="confirm_password"
+                            class="col-sm-3 col-form-label input-label">Confirm new password</label>
+                        <div class="col-sm-9">
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="confirm_password"
+                                    placeholder="Confirm your new password" formControlName="confirm_password">
+                            </div>
+                            <h5>Password requirements:</h5>
+                            <p class="mb-2">Ensure that these requirements are met:</p>
+                            <ul class="list-unstyled small">
+                                <li>Minimum 8 characters long - the more, the better</li>
+                                <li>Maximum 15 characters </li>
+                                <!-- <li>At least one uppercase character</li>
+                                <li>At least one number, symbol</li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Change password</button>
                     </div>
                 </form>
 

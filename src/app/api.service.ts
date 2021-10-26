@@ -95,8 +95,27 @@ export class ApiService {
     return this.httpClient.post<User>(`${this.url}/api/register`, User, this.usertoken);
   }
   deleteAppointment(id:number){
-    return this.httpClient.get<Appointment>(`${this.url}/api/deleteappointment/id=`+id, this.usertoken);
+    return this.httpClient.get<Appointment>(`${this.url}/api/deleteappointment/`+id, this.usertoken);
   }
+  approveAppointments(id:number){
+    return this.httpClient.put<Appointment>(`${this.url}/api/approveappointment/`+id, this.usertoken);
+  }
+  deleteConsultations(id:number){
+    return this.httpClient.delete<Consultation>(`${this.url}/api/deleteconsultation/`+id, this.usertoken);
+  }
+  approveConsultations(id:number){
+    return this.httpClient.put<Consultation>(`${this.url}/api/approveconsultation/`+id, this.usertoken);
+  }
+  putProfile (User:User){
+    return this.httpClient.post<User>(`${this.url}/api/updateprofile`, User,this.usertoken );
+  }
+  deleteCandidate(id:number){
+    return this.httpClient.get<JobApplication>(`${this.url}/api/declinejobapp/`+id, this.usertoken);
+  }
+ 
+  // putProfilePassword(User:User){
+  //   return this.httpClient.post<User>(`${this.url}/api/updateprofile`, User,this.usertoken );
+  // }
 
 
 

@@ -38,7 +38,7 @@
                             <tr *ngFor = "let appointment of allAppointments; let i=index ">
                                 <td>
                                     <h2 class="table-avatar">
-                                        <a href="profile.html" class="avatar avatar-sm me-2"><img
+                                        <a class="avatar avatar-sm me-2"><img
                                                 class="avatar-img rounded-circle"
                                                 src="../../assets/images/avatar.svg"
                                                 alt="User Image"></a>
@@ -53,7 +53,7 @@
                                 <td>{{appointment.date_of_appointment}}</td>
                                 <td>{{appointment.section.name}}</td>
                                 <td >
-                                    <button class="btn btn-primary"  >Approve </button>
+                                    <button class="btn btn-primary" (click) = "approveAppointment(appointment.id,i)"  >Approve </button>
                                     
                                     <button class="btn btn-danger" (click) ="declineAppointment(appointment.id,i)" >Decline</button>
                                 </td>

@@ -12,8 +12,9 @@ import { ApiService } from '../api.service';
 })
 export class EditprofileComponent implements OnInit {
 
-  userInfo :User[];
-  editProfileForm :FormGroup;
+  userInfo: User[];
+  editProfileForm: FormGroup;
+  editPassowrd: FormGroup;
 
   constructor(private httpClient: HttpClient, private apiservice: ApiService, private route: ActivatedRoute, private router: Router) { }
 
@@ -21,24 +22,38 @@ export class EditprofileComponent implements OnInit {
     this.editProfileForm = new FormGroup({
       'first_name': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
       'last_name': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
-      'password': new FormControl(null, [Validators.required, Validators.email]),
-      'phone_number': new FormControl(null, [Validators.required,Validators.minLength(8), Validators.maxLength(8)]),
       'address': new FormControl(null, [Validators.required, Validators.minLength(4), Validators.maxLength(15)]),
-      
+
     })
+    this.editPassowrd = new FormGroup({
+      'current_password': new FormControl(null, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]),
+      'new_password': new FormControl(null, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]),
+      'confirm_password': new FormControl(null, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]),
+    })
+
     this.getUserInfo();
-    this.fillTheForm();
-    
+
+
   }
 
   getUserInfo(){
     this.apiservice.selectUserInfo().subscribe(data=>{
       this.userInfo = data;
+      this.editProfileForm.patchValue({
+        'first_name': this.userInfo['first_name'],
+        'last_name' :  this.userInfo['last_name'],
+        'address' : this.userInfo['address']
+      });
     })
   }
-  fillTheForm(){
-    this.editProfileForm.get('first_name').setValue("mouhamad");
+
+  updateProfile(){
+    this.apiservice.putProfile(this.editProfileForm.value).subscribe((data:User)=>{
+      console.log("SUCCESS");
+    })
+    console.log(this.editProfileForm.value);
   }
+
 
 
 }

@@ -26,4 +26,19 @@ export class ConsultationComponent implements OnInit {
     })
   }
 
+  approveConsultation(id:number,i:number){
+    this.apiservice.approveConsultations(id).subscribe((Consultation:Consultation)=>{
+      this.allConsultations.splice(i,1);
+      console.log(id);
+      alert("Consultation has been Approved");
+    })
+  }
+  declineConsultation(id:number,i:number){
+    this.apiservice.deleteConsultations(id).subscribe((Consultation:Consultation)=>{
+      this.allConsultations.splice(i,1);
+      console.log(id);
+      alert("Consultation has been Declined");
+    })
+  }
+
 }

@@ -51,9 +51,9 @@
                                 <td>{{consultation.date_of_consultation}}</td>
                                 <td>{{consultation.major.name}}</td>
                                 <td >
-                                    <button class="btn btn-primary">Approve </button>
+                                    <button class="btn btn-primary" (click) = "approveConsultation(consultation.id,i)" >Approve </button>
                                     
-                                    <button class="btn btn-danger">Decline</button>
+                                    <button class="btn btn-danger" (click) = "declineConsultation(consultation.id,i)">Decline</button>
                                 </td>
                             </tr>
                            
