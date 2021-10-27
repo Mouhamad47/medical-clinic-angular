@@ -85,8 +85,20 @@ export class ApiService {
   selectAppointments():Observable<Appointment[]>{
     return this.httpClient.get<Appointment[]>(`${this.url}/api/getappointments`, this.usertoken);
   }
+  selectApprovedAppointments():Observable<Appointment[]>{
+    return this.httpClient.get<Appointment[]>(`${this.url}/api/getapprovedappointments`, this.usertoken);
+  }
+  selectDeclinedAppointments():Observable<Appointment[]>{
+    return this.httpClient.get<Appointment[]>(`${this.url}/api/getdeclinedappointments`, this.usertoken);
+  }
   selectConsultations():Observable<Consultation[]>{
     return this.httpClient.get<Consultation[]>(`${this.url}/api/getconsultations`, this.usertoken);
+  }
+  selectApprovedConsultations():Observable<Consultation[]>{
+    return this.httpClient.get<Consultation[]>(`${this.url}/api/getapprovedconsultations`, this.usertoken);
+  }
+  selectDeclinedConsultations():Observable<Consultation[]>{
+    return this.httpClient.get<Consultation[]>(`${this.url}/api/getdeclinedconsultations`, this.usertoken);
   }
   selectCandidates():Observable<JobApplication[]>{
     return this.httpClient.get<JobApplication[]>(`${this.url}/api/getjobapp`, this.usertoken);

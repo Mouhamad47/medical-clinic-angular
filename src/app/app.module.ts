@@ -26,6 +26,7 @@ import { ChatComponent } from './chat/chat.component';
 import { MessageComponent } from './message/message.component';
 import { BookappointmentComponent } from './bookappointment/bookappointment.component';
 import { CandidateComponent } from './candidate/candidate.component';
+import { GoogleChartsModule } from 'angular-google-charts';
 // import { TestComponent } from './test/test.component';
 
 
@@ -59,7 +60,8 @@ import { CandidateComponent } from './candidate/candidate.component';
     HttpClientModule,
     FormsModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GoogleChartsModule
     
     
    
