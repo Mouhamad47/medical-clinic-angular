@@ -91,7 +91,7 @@
                                 <th>Employment Date</th>
                                 <th>Address</th>
                                 <!-- <th>Status</th> -->
-                                <th class="text-end">Action</th>
+                                <th >Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -107,21 +107,8 @@
                                 <td>{{doctor.date_of_employment}}</td>
                                 <td>{{doctor.address}}</td>
                                 <!-- <td><span class="badge bg-success-light">Accepted</span></td> -->
-                                <td class="text-end">
-                                    <div class="dropdown dropdown-action">
-                                        <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown"
-                                            aria-expanded="false"><i class="fas fa-ellipsis-h"></i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-
-                                            <button class="dropdown-item" ><i
-                                                    class="far fa-trash-alt me-2"></i>Delete</button>
-
-                                            <button class="dropdown-item" ><i
-                                                    class="far fa-paper-plane me-2"></i>Ping
-                                                Doctor</button>
-
-                                        </div>
-                                    </div>
+                                <td >         
+                                    <button class="btn btn-danger" id={{doctor.id}}>Delete</button>
                                 </td>
                             </tr>
                             

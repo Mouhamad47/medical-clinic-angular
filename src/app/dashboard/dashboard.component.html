@@ -7,18 +7,18 @@
                         <i class="fas fa-dollar-sign"></i>
                     </span>
                     <div class="dash-count">
-                        <div class="dash-title">Amount Due</div>
+                        <div class="dash-title">Consultations</div>
                         <div class="dash-counts">
-                            <p>1,642</p>
+                            <p>{{numberOfConsultations}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="progress progress-sm mt-3">
+                <!-- <div class="progress progress-sm mt-3">
                     <div class="progress-bar bg-5" role="progressbar" style="width: 75%" aria-valuenow="75"
                         aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <p class="text-muted mt-3 mb-0"><span class="text-danger me-1"><i
-                            class="fas fa-arrow-down me-1"></i>1.15%</span> since last week</p>
+                            class="fas fa-arrow-down me-1"></i>1.15%</span> since last week</p> -->
             </div>
         </div>
     </div>
@@ -30,18 +30,18 @@
                         <i class="fas fa-users"></i>
                     </span>
                     <div class="dash-count">
-                        <div class="dash-title">Customers</div>
+                        <div class="dash-title">Doctors</div>
                         <div class="dash-counts">
-                            <p>3,642</p>
+                            <p>{{numberOfDoctors}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="progress progress-sm mt-3">
+                <!-- <div class="progress progress-sm mt-3">
                     <div class="progress-bar bg-6" role="progressbar" style="width: 65%" aria-valuenow="75"
                         aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <p class="text-muted mt-3 mb-0"><span class="text-success me-1"><i
-                            class="fas fa-arrow-up me-1"></i>2.37%</span> since last week</p>
+                            class="fas fa-arrow-up me-1"></i>2.37%</span> since last week</p> -->
             </div>
         </div>
     </div>
@@ -53,18 +53,18 @@
                         <i class="fas fa-file-alt"></i>
                     </span>
                     <div class="dash-count">
-                        <div class="dash-title">Invoices</div>
+                        <div class="dash-title">Nurses</div>
                         <div class="dash-counts">
-                            <p>1,041</p>
+                            <p>{{numberOfNurses}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="progress progress-sm mt-3">
+                <!-- <div class="progress progress-sm mt-3">
                     <div class="progress-bar bg-7" role="progressbar" style="width: 85%" aria-valuenow="75"
                         aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <p class="text-muted mt-3 mb-0"><span class="text-success me-1"><i
-                            class="fas fa-arrow-up me-1"></i>3.77%</span> since last week</p>
+                            class="fas fa-arrow-up me-1"></i>3.77%</span> since last week</p> -->
             </div>
         </div>
     </div>
@@ -76,18 +76,18 @@
                         <i class="far fa-file"></i>
                     </span>
                     <div class="dash-count">
-                        <div class="dash-title">Estimates</div>
+                        <div class="dash-title">Candidates</div>
                         <div class="dash-counts">
-                            <p>2,150</p>
+                            <p>{{numberOfCandidates}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="progress progress-sm mt-3">
+                <!-- <div class="progress progress-sm mt-3">
                     <div class="progress-bar bg-8" role="progressbar" style="width: 45%" aria-valuenow="75"
                         aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <p class="text-muted mt-3 mb-0"><span class="text-danger me-1"><i
-                            class="fas fa-arrow-down me-1"></i>8.68%</span> since last week</p>
+                            class="fas fa-arrow-down me-1"></i>8.68%</span> since last week</p> -->
             </div>
         </div>
     </div>
@@ -97,7 +97,7 @@
         <div class="card flex-fill">
             <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="card-title">Sales Analytics</h5>
+                    <h5 class="card-title">Consultations & Appointments Analytics</h5>
                     
                 </div>
             </div>
@@ -134,7 +134,7 @@
                     [data]="myData1" 
                     [columns]="chartColumns1"
                     [options]="myOptions1"
-                    style="width: 550px;height: 500px;">
+                    style="width: 500px;height: 400px;">
                 </google-chart>
                 </div>
                

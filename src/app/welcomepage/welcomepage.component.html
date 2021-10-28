@@ -1,10 +1,10 @@
 
 
 <div style="background-color:white;">
-  <nav [ngClass]="{scrollnav: scroll===false}"
+  <nav
     class="navbar sticky-top navbar-expand-lg navbar-light justify-content-end">
     <div class="container-fluid">
-      <img [ngClass]="{scrollimg: scroll===false}" class="img-fluid" src="assets/images/logo1.png" alt="..">
+      <img class="img-fluid" src="assets/images/logo1.png" alt="..">
       <!-- <a class="navbar-brand" href="#">MedClick</a> -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,16 +13,16 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul [ngClass]="{scrollnavbarnav: scroll===false}" class="navbar-nav">
           <li class="nav-item">
-            <a [ngClass]="{scrollnavlink: scroll===false}" class="nav-link active" aria-current="page" href="">Home</a>
+            <a  class="nav-link active" aria-current="page" href="">Home</a>
           </li>
           <li class="nav-item">
-            <a [ngClass]="{scrollnavlink: scroll===false}" class="nav-link" href=""> Servecies </a>
+            <a  class="nav-link" href="#services"> Services </a>
           </li>
           <li class="nav-item">
-            <a [ngClass]="{scrollnavlink: scroll===false}" class="nav-link" href="#">About us </a>
+            <a  class="nav-link" href="#apply">Apply </a>
           </li>
           <li class="nav-item">
-            <a [ngClass]="{scrollnavlink: scroll===false}" class="nav-link" href="#" [routerLink]="'/login'">Login </a>
+            <a  class="nav-link" href="#" [routerLink]="'/login'">Login </a>
           </li>
           
         </ul>
@@ -148,23 +148,29 @@
                   <p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
                 </div>
               </div>
+              <div id="apply">
+
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div class="col-md-6">
-        <img style="height:675px;width: 745px;" src="assets/images/nurse.jpg" alt="">
+        <img style="height:675px;width: 745px;" src="assets/images/nurse.jpg" alt="" >
+       
       </div>
+     
     </div>
   </div>
-  <div class="container-fluid" id="sectionapply">
+  
+  <div class="container-fluid" id="sectionapply" >
     <div class="container">
       <div class="row">
         <div class="col-md-9">
           <h2>We provide oppurtunities to get hired</h2>
           <p>Fill out the form if you want a job</p>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3" id="services">
           <button [routerLink]="'jobapplication'" class="btn btn-primary">Apply now</button>
         </div>
       </div>

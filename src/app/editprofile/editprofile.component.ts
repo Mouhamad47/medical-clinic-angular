@@ -19,6 +19,9 @@ export class EditprofileComponent implements OnInit {
   constructor(private httpClient: HttpClient, private apiservice: ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+
+    this.getUserInfo();
+    
     this.editProfileForm = new FormGroup({
       'first_name': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
       'last_name': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
@@ -31,7 +34,7 @@ export class EditprofileComponent implements OnInit {
       'confirm_password': new FormControl(null, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]),
     })
 
-    this.getUserInfo();
+   
 
 
   }

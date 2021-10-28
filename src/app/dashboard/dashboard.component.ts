@@ -17,40 +17,35 @@ export class DashboardComponent implements OnInit {
   declinedAppointments : Appointment[];
   approvedConsultations : Consultation[];
   declinedConsultations : Consultation[];
+  numberOfCandidates:Number;
+  numberOfNurses:Number;
+  numberOfDoctors:Number;
+  numberOfConsultations:Number;
   
   constructor(private httpClient: HttpClient, private apiservice: ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+      this.getNumberOfDoctors();
+      this.getNumberOfNurses();
+      this.getNumberOfConsultations();
+      this.getNumberOfCandidates();
       this.getApprovedAppointments();  
       this.getDeclinedAppointments();
       this.getApprovedConsultations();
       this.getDeclinedConsultations();
+      this.getChartData();
+
 
   }
   //Bar CHart
   title = 'practice';
 
-  public myData = [
-    ['Jan', 22, 13],
-    ['Feb', 11, 11],
-    ['Mar', 41, 12],
-    ['Apr', 22, 5],
-    ['May', 42, 11],
-    ['Jun', 76, 4],
-    ['Jul', 71, 32],
-    ['Aug', 32, 22],
-    ['Sep', 76, 19],
-    ['Oct', 67, 23],
-    ['Nov', 56, 2],
-    ['Dec', 53, 3],
-
-
-
-  ];
-  public chartColumns = ['City', 'Consultations', 'Appointments'];
+  public myData :any = [];
+   
+  public chartColumns = ['Month', 'Consultations', 'Appointments'];
 
   public myOptions = {
-    colors: ['#318787', '#45B0B0', '#61BDBD', '#79CDCD', '#9CDCDC'],
+    colors: ['#318787', '#79CDCD'],
     is3D: true,
     legend: 'bottom'
   };
@@ -77,7 +72,9 @@ export class DashboardComponent implements OnInit {
   clickViewConsultation() {
     if (this.viewConsultations == "Accepted") {
       this.viewConsultations = "Rejected"
-    } else {
+     
+    }
+     else {
       this.viewConsultations = "Accepted"
     }
   }
@@ -108,6 +105,32 @@ export class DashboardComponent implements OnInit {
   getDeclinedConsultations(){
     this.apiservice.selectDeclinedConsultations().subscribe(data=>{
       this.declinedConsultations = data;
+    })
+  }
+  getNumberOfDoctors(){
+    this.apiservice.selectNumberOfDoctors().subscribe(data=>{
+      this.numberOfDoctors = data;
+    })
+  }
+  getNumberOfNurses(){
+    this.apiservice.selectNumberOfNurses().subscribe(data=>{
+      this.numberOfNurses = data;
+    })
+  }
+  getNumberOfConsultations(){
+    this.apiservice.selectNumberOfConsultations().subscribe(data=>{
+      this.numberOfConsultations = data;
+    })
+  }
+  getNumberOfCandidates(){
+    this.apiservice.selectNumberOfCandidates().subscribe(data=>{
+      this.numberOfCandidates = data;
+    })
+  }
+  getChartData(){
+    this.apiservice.selectConsultationsAppointments().subscribe(data=>{
+     this.myData = data;
+      console.log(data);
     })
   }
 

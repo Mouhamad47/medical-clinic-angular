@@ -124,7 +124,22 @@ export class ApiService {
   deleteCandidate(id:number){
     return this.httpClient.get<JobApplication>(`${this.url}/api/declinejobapp/`+id, this.usertoken);
   }
- 
+  selectNumberOfDoctors():Observable<Number>{
+    return this.httpClient.get<Number>(`${this.url}/api/numberofdoctors`, this.usertoken);
+  }
+  selectNumberOfNurses():Observable<Number>{
+    return this.httpClient.get<Number>(`${this.url}/api/numberofnurses`, this.usertoken);
+  }
+  selectNumberOfConsultations():Observable<Number>{
+    return this.httpClient.get<Number>(`${this.url}/api/numberofconsultations`, this.usertoken);
+  }
+  selectNumberOfCandidates():Observable<Number>{
+    return this.httpClient.get<Number>(`${this.url}/api/numberofcandidates`, this.usertoken);
+  }
+  selectConsultationsAppointments():Observable<Object>{
+    return this.httpClient.get<Object>(`${this.url}/api/getconsapp`, this.usertoken);
+
+  }
   // putProfilePassword(User:User){
   //   return this.httpClient.post<User>(`${this.url}/api/updateprofile`, User,this.usertoken );
   // }

@@ -2,18 +2,22 @@
   <div class="container">
     <div class="forms-container">
       <div class="signin-signup">
-        <form #loginform="ngForm" class="sign-in-form">
+        <form [formGroup]="loginForm" (ngSubmit)="login()" class="sign-in-form">
           <h2 class="title">Sign in</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="email" placeholder="Email Address" name="email" [(ngModel)]="users.email" #email="ngModel" />
+            <input type="email" placeholder="Email Address" name="email" formControlName="email" />
+            <!-- <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched" class="help-block">Please enter your email</span> -->
+
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" name="password" [(ngModel)]="users.password" #password="ngModel" required />
+            <input type="password" placeholder="Password" name="password" formControlName="password" />
+            <!-- <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched" class="help-block">Please enter your password</span> -->
+
           </div>
-          <input type="submit" value="Login" class="btn solid" [disabled]="loginform.value.email==='' && loginform.value.password===''" (click)="login(loginform)" />
-         
+          <button type="submit" value="Login" class="btn solid" [disabled] = "loginForm.invalid">Login</button>
+
         </form>
       </div>
     </div>
@@ -21,18 +25,17 @@
     <div class="panels-container">
       <div class="panel left-panel">
         <div class="content">
-          <h3>New here ?</h3>
+          <h3>Important</h3>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-            ex ratione. Aliquid!
+           This page can be used only by the admin, please if you are not go back to home page
           </p>
-          <button class="btn transparent" id="sign-up-btn">
-            Sign up
+          <button class="btn transparent" id="sign-up-btn"  [routerLink]="''" >
+            Home page
           </button>
         </div>
         <img src="assets/images/loginsvg.svg" class="image" alt="" />
       </div>
-     
+
     </div>
   </div>
 </div>

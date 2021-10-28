@@ -10,10 +10,14 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+
+  adminFirstName : String;
+  adminLastName : String;
+
   constructor(private http: HttpClient, private apiservice: ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-
+    this.getUserInfo();
   }
   logOut() {
     this.apiservice.logOut();
@@ -21,6 +25,13 @@ export class AdminComponent implements OnInit {
     this.router.navigate(['/login']);
 
 
+  }
+  getUserInfo(){
+    this.apiservice.selectUserInfo().subscribe(data=>{
+      this.adminFirstName = data['first_name'];
+      this.adminLastName = data['last_name'];
+      
+    })
   }
 
 
