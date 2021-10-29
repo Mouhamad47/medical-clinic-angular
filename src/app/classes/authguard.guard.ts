@@ -25,6 +25,6 @@ if (this.apiservice.isLoggedIn()) {
 }
 
 this.apiservice.redirectUrl = routeurl;
-this.router.navigate(['/login']);
+this.router.navigate(['/']);
 }
 }

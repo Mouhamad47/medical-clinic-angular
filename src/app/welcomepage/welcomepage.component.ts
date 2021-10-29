@@ -18,7 +18,19 @@ export class WelcomepageComponent implements OnInit {
   // fade :boolean = false;
   // today : string = new Date().toDateString();
   allMajors : Major[];
+  consultationSlots :Array<string> = [
+    '09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00'
+  ];
+  appointmentsSlots :Array<string> = [
+    '09:00','10:00','11:00','12:00','13:00','14:00','15:00'
+  ];
+  today : number =  Date.now();
+  today_date : Date = new Date();
+  weekAhead : number =this.today_date.setDate(this.today_date.getDate()+7);
+
   consultationForm :FormGroup;
+  // date:Date = new Date();
+  // latestDate = this.datepipe.transform(this.date,'yyyy-MM-dd');
   constructor(private httpClient: HttpClient, private apiservice: ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {

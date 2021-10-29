@@ -27,6 +27,7 @@ import { MessageComponent } from './message/message.component';
 import { BookappointmentComponent } from './bookappointment/bookappointment.component';
 import { CandidateComponent } from './candidate/candidate.component';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { AuthguardGuard } from './classes/authguard.guard';
 // import { TestComponent } from './test/test.component';
 
 
@@ -67,7 +68,7 @@ import { GoogleChartsModule } from 'angular-google-charts';
    
   ],
   // schemas:[ CUSTOM_ELEMENTS_SCHEMA], 
-  providers: [ApiService],
+  providers: [ApiService,AuthguardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

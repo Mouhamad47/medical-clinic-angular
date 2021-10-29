@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { WelcomepageComponent } from './welcomepage/welcomepage.component';
+import { AuthguardGuard } from './classes/authguard.guard';
 
 
 const routes: Routes = [
@@ -21,7 +22,7 @@ const routes: Routes = [
   {path: 'login', component:LoginComponent},
   {path: 'jobapplication', component: JobapplicationComponent },
   {path: 'bookappointment',component:BookappointmentComponent},
-  {path: 'admin', component:AdminComponent, children :[
+  {path: 'admin', canActivate:[AuthguardGuard], component:AdminComponent, children :[
     {path:  'dashboard',component:DashboardComponent},
     {path : 'doctors', component :DoctorComponent},
     {path : 'nurses', component :NurseComponent},
