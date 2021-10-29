@@ -67,14 +67,23 @@ export class ApiService {
   addJobApp(JobApplication: JobApplication) {
     return this.httpClient.post<JobApplication>(`${this.url}/api/createjobapp`, JobApplication);
   }
+  addConsultation(Consultation:Consultation){
+    return this.httpClient.post<Consultation>(`${this.url}/api/createconsultation`, Consultation);
+  }
   selectUserInfo():Observable<User[]>{
     return this.httpClient.get<User[]>(`${this.url}/api/userinfo`, this.usertoken);
   }
   selectAllDoctors():Observable<User[]>{
     return this.httpClient.get<User[]>(`${this.url}/api/getalldoctors`, this.usertoken);
   }
+  deleteDoctor(id:number){
+    return this.httpClient.delete<User>(`${this.url}/api/deletedoctor/`+id, this.usertoken);
+  }
   selectAllNurses():Observable<User[]>{
     return this.httpClient.get<User[]>(`${this.url}/api/getallnurses`, this.usertoken);
+  }
+  deleteNurse(id:number){
+    return this.httpClient.delete<User>(`${this.url}/api/deletenurse/`+id, this.usertoken);
   }
   selectMajors():Observable<Major[]>{
     return this.httpClient.get<Major[]>(`${this.url}/api/getmajors`, this.usertoken);

@@ -34,16 +34,16 @@ export class NurseComponent implements OnInit {
   }
 
   addNurse() {
-    this.apiservice.register(this.addNurseForm.value).subscribe((data:User)=>{
-      console.log("Sucess",data);
+    this.apiservice.register(this.addNurseForm.value).subscribe((data: User) => {
+      console.log("Sucess", data);
       this.addNurseForm.reset();
       alert("Nurse Registered Successfully");
     })
   }
 
   getMajors() {
-    this.apiservice.selectLastTwoMajors().subscribe(data=>{
-      this.lastTwoMajors= data;
+    this.apiservice.selectLastTwoMajors().subscribe(data => {
+      this.lastTwoMajors = data;
       console.log(this.lastTwoMajors);
     })
   }
@@ -52,6 +52,14 @@ export class NurseComponent implements OnInit {
       this.allNurses = data;
       console.log(data);
     })
+  }
+
+  removeNurse(id: number, i: number) {
+    this.apiservice.deleteNurse(id).subscribe((User: User) => {
+      this.allNurses.splice(i, 1);
+      alert("Nurse has been deleted")
+    })
+
   }
 
 

@@ -78,6 +78,12 @@ export class DoctorComponent implements OnInit {
     })
     
   }
+  removeDoctor(id:number,i:number){
+    this.apiservice.deleteDoctor(id).subscribe((User:User)=>{
+      this.allDoctors.splice(i,1);
+      alert("Doctor has been deleted")
+    })
+  }
 
 
 
