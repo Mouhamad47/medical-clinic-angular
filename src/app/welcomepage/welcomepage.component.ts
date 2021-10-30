@@ -1,7 +1,7 @@
 import { Consultation } from './../classes/consultation';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Major } from './../classes/major';
-import { Component, OnInit, HostListener} from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../api.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,23 +12,27 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./welcomepage.component.css']
 })
 export class WelcomepageComponent implements OnInit {
-    
+
   // scroll:boolean = true;
   // headeranimation:boolean = false;
   // fade :boolean = false;
   // today : string = new Date().toDateString();
-  allMajors : Major[];
-  consultationSlots :Array<string> = [
-    '09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00'
+  allMajors: Major[];
+  consultationSlots: Array<string> = [
+    '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00'
   ];
-  appointmentsSlots :Array<string> = [
-    '09:00','10:00','11:00','12:00','13:00','14:00','15:00'
+  consultationSlotsRebuild: Array<string> = [
+    '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00'
   ];
-  today : number =  Date.now();
-  today_date : Date = new Date();
-  weekAhead : number =this.today_date.setDate(this.today_date.getDate()+7);
+  appointmentsSlots: Array<string> = [
+    '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00'
+  ];
+  takenSlots: Array<any> = [];
+  today: number = Date.now();
+  today_date: Date = new Date();
+  weekAhead: number = this.today_date.setDate(this.today_date.getDate() + 7);
 
-  consultationForm :FormGroup;
+  consultationForm: FormGroup;
   // date:Date = new Date();
   // latestDate = this.datepipe.transform(this.date,'yyyy-MM-dd');
   constructor(private httpClient: HttpClient, private apiservice: ApiService, private route: ActivatedRoute, private router: Router) { }
@@ -42,11 +46,11 @@ export class WelcomepageComponent implements OnInit {
       'date_of_consultation': new FormControl(null, [Validators.required]),
       'start_hour': new FormControl(null, [Validators.required]),
       'major_id': new FormControl(null, [Validators.required]),
-      
+
     })
-    // this.headerAnimation();
-    // this.imgAnimation();
+
     this.getAllMajors();
+    this.desableSlot();
 
   }
   @HostListener("document:scroll")
@@ -58,11 +62,11 @@ export class WelcomepageComponent implements OnInit {
   //       this.scroll = true;
   //     }
   //   }
-    // fadeevent(){
-    //   if(document.body.scrollTop > 2000 || document.documentElement.scrollTop > 1){
-    //     this.fade = true
-    //   } 
-    // }
+  // fadeevent(){
+  //   if(document.body.scrollTop > 2000 || document.documentElement.scrollTop > 1){
+  //     this.fade = true
+  //   } 
+  // }
 
   // headerAnimation(){
   //     if(this.headeranimation === false){
@@ -76,19 +80,77 @@ export class WelcomepageComponent implements OnInit {
   //       this.fade = true;
   //     }
   // }
-  getAllMajors(){
-    this.apiservice.selectMajors().subscribe(data=>{
+  getAllMajors() {
+    this.apiservice.selectMajors().subscribe(data => {
       this.allMajors = data;
       console.log(data);
     })
   }
-  createConsutation(){
-    this.apiservice.addConsultation(this.consultationForm.value).subscribe((data :Consultation)=>{
+  createConsutation() {
+    this.apiservice.addConsultation(this.consultationForm.value).subscribe((data: Consultation) => {
       alert('Consultation has been booked');
       this.consultationForm.reset();
     })
     // console.log(this.consultationForm.value);
-  }  
-  
+  }
+  getAvailableConsultationsSlots(date: string, major_id: number) {
+    this.apiservice.selectAvailableConsultationSlots(date, major_id).subscribe((data: any) => {
+      this.takenSlots = data;
+      // console.log(this.takenSlots);
+    })
+  }
+  checkAvailableConsSLot() {
+    let start_hour = this.consultationForm.get('start_hour');
+    let date = this.consultationForm.get('date_of_consultation');
+    let major_id = this.consultationForm.get('major_id');
+    if (!date.pristine || !major_id.pristine) {
+      this.consultationSlots = [
+        '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00'
+      ];
+    }
+
+    if (date.dirty || major_id.dirty) {
+      start_hour.enable();
+
+
+
+      this.getAvailableConsultationsSlots(date.value, major_id.value);
+      setTimeout(() => {
+
+        this.chechSlotsAvailablity();
+
+      }, 2000);
+
+
+    }
+
+  }
+  desableSlot() {
+    this.consultationForm.get('start_hour').disable();
+  }
+  chechSlotsAvailablity() {
+    // let j:number = 0;
+    console.log(this.takenSlots);
+    console.log(this.consultationSlots);
+    for (let i: number = 0; i < this.consultationSlots.length; i++) {
+      for (let j: number = 0; j < this.takenSlots.length; j++) {
+        if (this.takenSlots[j] == this.consultationSlots[i]) {
+          this.consultationSlots.splice(i, 1);
+          // console.log("hello")
+        }
+      }
+      // if (this.takenSlots[j][i] == this.consultationSlots[i]) {
+      //   console.log(true);
+      // }
+      // console.log(this.takenSlots[i]);
+      // if(this.takenSlots[i]==this.consultationSlots[i]){
+      //   // this.consultationSlots.splice(i,1);
+      //   console.log("hello")
+      // }
+    }
+
+
+  }
+
 
 }

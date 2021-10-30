@@ -35,7 +35,7 @@
     <div  class="imgcaption">
       <h1 class="mb-4">We care <span>about your health</span> </h1>
       <h3 class="subheading">Your Health is Our Top Priority with Comprehensive, Affordable medical</h3>
-      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="@getbootstrap"> Book a consultation</button> &nbsp;   
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="@getbootstrap" > Book a consultation</button> &nbsp;   
       <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"> Book an appointment</button> 
       <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button> -->
 
@@ -378,12 +378,16 @@
               </div>
               <div class="col-md-6">
                 <label for="recipient-name" class="col-form-label">Date:</label>
-                <input type="date" min="{{today|date:'yyyy-MM-dd'}}" max="{{weekAhead|date:'yyyy-MM-dd'}}" class="form-control" id="recipient-name" formControlName="date_of_consultation" >
+                <input type="date" min="{{today|date:'yyyy-MM-dd'}}" max="{{weekAhead|date:'yyyy-MM-dd'}}" class="form-control" id="recipient-name" formControlName="date_of_consultation" (click)="checkAvailableConsSLot()" >
               </div>
-              <!-- <div class="col-md-6">
-                <label for="recipient-date" class="col-form-label">Time:</label>
-                <input type="time" step="3600000" class="form-control" id="recipient-date">
-              </div> -->
+
+              <div class="col-md-6">
+                <label for="recipient-name" class="col-form-label">Major</label>
+                <select class="form-select" aria-label="Default select example" formControlName="major_id" (click)="checkAvailableConsSLot()">
+                  <option  *ngFor =" let major of allMajors" value={{major.id}} >{{major.name}}</option>
+                  
+                </select>
+              </div>
               <div class="col-md-6">
                 <label for="recipient-name" class="col-form-label">Available Slots</label>
                 <select class="form-select" aria-label="Default select example" formControlName="start_hour">
@@ -392,13 +396,7 @@
                   
                 </select>
               </div>
-              <div class="col-md-6">
-                <label for="recipient-name" class="col-form-label">Section</label>
-                <select class="form-select" aria-label="Default select example" formControlName="major_id">
-                  <option *ngFor =" let major of allMajors" value={{major.id}} >{{major.name}}</option>
-                  
-                </select>
-              </div>
+             
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

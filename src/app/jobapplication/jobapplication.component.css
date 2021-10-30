@@ -3,6 +3,7 @@
     background: linear-gradient(to left, #3BA5A5, #04befe 270%);
     padding: 3%;
     height: 100%;
+    
 }
 .register-left{
     text-align: center;
@@ -45,6 +46,8 @@
     font-weight: lighter;
     padding: 12%;
     margin-top: -9%;
+    font-size: 20px;
+    font-weight: 400;
 }
 .register .register-form{
     padding: 10%;

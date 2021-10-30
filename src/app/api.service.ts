@@ -149,6 +149,12 @@ export class ApiService {
     return this.httpClient.get<Object>(`${this.url}/api/getconsapp`, this.usertoken);
 
   }
+  selectConsultationGroupedByMajor():Observable<string>{
+    return this.httpClient.get<string>(`${this.url}/api/getconspiechart`, this.usertoken)
+  }
+  selectAvailableConsultationSlots(date:string, major_id:number):Observable<any>{
+    return this.httpClient.get<any>(`${this.url}/api/getusedconsslots/`+date+`/`+major_id, this.usertoken)
+  }
   // putProfilePassword(User:User){
   //   return this.httpClient.post<User>(`${this.url}/api/updateprofile`, User,this.usertoken );
   // }
