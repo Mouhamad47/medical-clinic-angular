@@ -31,7 +31,7 @@ const routes: Routes = [
     {path : 'consultations', component:ConsultationComponent},
     {path : 'candidates', component : CandidateComponent},
     {path : 'chat',component:ChatComponent ,children :[
-      {path :'messages', component :MessageComponent}
+      {path :'messages/:id/:firstname/:lastname', component :MessageComponent}
     ]},
 
   ]},

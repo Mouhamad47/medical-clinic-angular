@@ -28,7 +28,11 @@ import { BookappointmentComponent } from './bookappointment/bookappointment.comp
 import { CandidateComponent } from './candidate/candidate.component';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { AuthguardGuard } from './classes/authguard.guard';
-// import { TestComponent } from './test/test.component';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from 'src/environments/environment';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 
 
@@ -52,7 +56,7 @@ import { AuthguardGuard } from './classes/authguard.guard';
     MessageComponent,
     BookappointmentComponent,
     CandidateComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -62,13 +66,18 @@ import { AuthguardGuard } from './classes/authguard.guard';
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
-    GoogleChartsModule
-    
-    
-   
+    GoogleChartsModule,
+    AngularFireModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase),
+
+
+
+
   ],
   // schemas:[ CUSTOM_ELEMENTS_SCHEMA], 
-  providers: [ApiService,AuthguardGuard],
+  providers: [ApiService, AuthguardGuard,AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

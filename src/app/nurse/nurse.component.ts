@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { Major } from '../classes/major';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-nurse',
@@ -16,7 +18,8 @@ export class NurseComponent implements OnInit {
   addNurseForm: FormGroup;
   allNurses: User[];
   lastTwoMajors: Major[];
-  constructor(private httpClient: HttpClient, private apiservice: ApiService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private httpClient: HttpClient, private apiservice: ApiService, private route: ActivatedRoute, private router: Router,private afAuth: AngularFireAuth,
+    private db: AngularFireDatabase) { }
 
   ngOnInit(): void {
     this.addNurseForm = new FormGroup({
@@ -34,11 +37,25 @@ export class NurseComponent implements OnInit {
   }
 
   addNurse() {
-    this.apiservice.register(this.addNurseForm.value).subscribe((data: User) => {
+    return this.afAuth.auth.createUserWithEmailAndPassword(this.addNurseForm.get('email').value, this.addNurseForm.get('password').value)
+    .then((response)=>{
+      const registerUser: User = {
+        first_name: this.addNurseForm.get('first_name').value,
+        last_name: this.addNurseForm.get('last_name').value,
+        email: this.addNurseForm.get('email').value,
+        password: this.addNurseForm.get('password').value,
+        address: this.addNurseForm.get('address').value,
+        role: this.addNurseForm.get('role').value,
+        major_id: this.addNurseForm.get('major_id').value,
+        uid: response.user.uid,
+      }
+      this.apiservice.register(registerUser).subscribe((data: User) => {
       console.log("Sucess", data);
       this.addNurseForm.reset();
       alert("Nurse Registered Successfully");
     })
+    })
+  
   }
 
   getMajors() {

@@ -53,33 +53,7 @@ export class WelcomepageComponent implements OnInit {
     this.desableSlot();
 
   }
-  @HostListener("document:scroll")
-  // scrollevent(){
-  //     if(document.body.scrollTop > 25 || document.documentElement.scrollTop > 1 ){
-  //       this.scroll = false;
-  //     }
-  //     else{
-  //       this.scroll = true;
-  //     }
-  //   }
-  // fadeevent(){
-  //   if(document.body.scrollTop > 2000 || document.documentElement.scrollTop > 1){
-  //     this.fade = true
-  //   } 
-  // }
-
-  // headerAnimation(){
-  //     if(this.headeranimation === false){
-
-  //       this.headeranimation = true;
-  //     }
-  // }
-  // imgAnimation(){
-  //     if(this.fade === false){
-
-  //       this.fade = true;
-  //     }
-  // }
+ 
   getAllMajors() {
     this.apiservice.selectMajors().subscribe(data => {
       this.allMajors = data;
@@ -129,24 +103,14 @@ export class WelcomepageComponent implements OnInit {
     this.consultationForm.get('start_hour').disable();
   }
   chechSlotsAvailablity() {
-    // let j:number = 0;
-    console.log(this.takenSlots);
-    console.log(this.consultationSlots);
     for (let i: number = 0; i < this.consultationSlots.length; i++) {
       for (let j: number = 0; j < this.takenSlots.length; j++) {
         if (this.takenSlots[j] == this.consultationSlots[i]) {
           this.consultationSlots.splice(i, 1);
-          // console.log("hello")
+        
         }
       }
-      // if (this.takenSlots[j][i] == this.consultationSlots[i]) {
-      //   console.log(true);
-      // }
-      // console.log(this.takenSlots[i]);
-      // if(this.takenSlots[i]==this.consultationSlots[i]){
-      //   // this.consultationSlots.splice(i,1);
-      //   console.log("hello")
-      // }
+     
     }
 
 

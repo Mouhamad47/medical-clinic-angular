@@ -3,7 +3,7 @@
         <div class="col">
             <h3 class="page-title">Chats</h3>
         </div>
-       
+
     </div>
 </div>
 
@@ -30,56 +30,35 @@
                 </form>
                 <div class="chat-users-list">
                     <div class="chat-scroll">
-                        <a href="javascript:void(0);" class="media d-flex">
+                        <div *ngFor = "let user of allUserExcepetOne">
+                          <a [routerLink]="['messages',user.id,user.first_name,user.last_name]" class="media d-flex" >
                             <div class="media-img-wrap">
-                                <div class="avatar avatar-away">
+                                <div class="avatar ">
                                     <img src="../../assets/images/avatar.svg" alt="User Image"
                                         class="avatar-img rounded-circle">
                                 </div>
                             </div>
                             <div class="media-body">
                                 <div>
-                                    <div class="user-name">Marie Canales</div>
-                                    <div class="user-last-chat">Hey, How are you?</div>
-                                </div>
-                                <div>
-                                    <div class="last-chat-time block">2 min</div>
-                                    <div class="badge badge-success badge-pill">15</div>
-                                </div>
-                            </div>
-                        </a>
-                       
-                        <a href="javascript:void(0);" class="media d-flex">
-                            <div class="media-img-wrap">
-                                <div class="avatar avatar-away">
-                                    <img src="../../assets/images/avatar.svg" alt="User Image"
-                                        class="avatar-img rounded-circle">
-                                </div>
-                            </div>
-                            <div class="media-body">
-                                <div>
-                                    <div class="user-name">Greg Lynch</div>
-                                    <div class="user-last-chat">Give me a full explanation about our
-                                        project</div>
+                                    <div class="user-name">{{user.first_name}} {{user.last_name}}</div>
+                                    <!-- <div class="user-last-chat">Give me a full explanation about our
+                                        project</div> -->
                                 </div>
                                 <div>
                                     <div class="last-chat-time block">7:30 PM</div>
                                     <div class="badge badge-success badge-pill">3</div>
                                 </div>
                             </div>
-                        </a>
-                       
+                        </a>  
+                        </div>
                         
-                        
-                       
-                        
-                        
-                        
+
+
                     </div>
                 </div>
             </div>
             <div class="chat-cont-right">
-               <router-outlet></router-outlet>
+                <router-outlet></router-outlet>
             </div>
         </div>
     </div>

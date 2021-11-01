@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { first } from 'rxjs/operators';
 import { ApiService } from './../api.service';
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +14,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
-  loginForm : FormGroup;
-  
-  
+
+  loginForm: FormGroup;
+
+
   users: User = {
     id: null,
     first_name: '',
@@ -28,7 +30,8 @@ export class LoginComponent implements OnInit {
     major_id: null,
 
   }
-  constructor(private httpClient: HttpClient, private apiservice: ApiService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private httpClient: HttpClient, private apiservice: ApiService, private route: ActivatedRoute, private router: Router, private afAuth: AngularFireAuth,
+    private db: AngularFireDatabase) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -37,10 +40,26 @@ export class LoginComponent implements OnInit {
 
     })
 
+
   }
 
+  // login() {
+  //   return this.afAuth.auth.signInWithEmailAndPassword(this.loginForm.get('email').value,this.loginForm.get('password').value)
+  //   .then((auth)=>{
+
+  //     this.apiservice.loginVerification(this.loginForm.get('email').value,this.loginForm.get('password').value)
+  //     .pipe(first())
+  //     .subscribe(data => {
+  //       if (data['role'] == 1) {
+  //         this.router.navigate(['/admin/dashboard']);
+  //       }
+
+  //     })
+  //   })
+
+  // }
   login() {
-    this.apiservice.loginVerification(this.loginForm.get('email').value,this.loginForm.get('password').value)
+    this.apiservice.loginVerification(this.loginForm.get('email').value, this.loginForm.get('password').value)
       .pipe(first())
       .subscribe(data => {
         if (data['role'] == 1) {
@@ -48,7 +67,9 @@ export class LoginComponent implements OnInit {
         }
 
       })
+
   }
+
 
 
 
