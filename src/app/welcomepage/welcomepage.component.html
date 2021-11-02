@@ -1,6 +1,7 @@
 
 
 <div style="background-color:white;">
+  
   <nav
     class="navbar sticky-top navbar-expand-lg navbar-light justify-content-end">
     <div class="container-fluid">
@@ -31,8 +32,11 @@
   </nav>
 
   <div class="welcomediv">
-    <img  src="assets/images/startup1.jpg" alt="">
-    <div  class="imgcaption" >
+    <img [ngClass]="{fade1 : fade===true}"  src="assets/images/startup1.jpg" alt="">
+    <div [ngClass]="{headerpicanimation: headeranimation===true}"  class="imgcaption" >
+      <div class="div">
+        
+      </div>
       <h1 class="mb-4">We care <span>about your health</span> </h1>
       <h3 class="subheading">Your Health is Our Top Priority with Comprehensive, Affordable medical</h3>
       <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="@getbootstrap" > Book a consultation</button> &nbsp;   
@@ -105,7 +109,7 @@
           <div class="row mt-5 pt-2">
             <div class="col-lg-6">
               <div class="services-2 d-flex">
-                <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
+                <div class="icon  mt-2 mr-3 d-flex justify-content-center align-items-center">
                   <span class="fas fa-briefcase-medical"></span>
                 </div>
                 <div class="text">
@@ -116,7 +120,7 @@
             </div>
             <div class="col-lg-6">
               <div class="services-2 d-flex">
-                <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
+                <div class="icon  mt-2 mr-3 d-flex justify-content-center align-items-center">
                   <span class="fas fa-microscope"></span>
                 </div>
                 <div class="text">
@@ -127,7 +131,7 @@
             </div>
             <div class="col-lg-6" style="margin-top: 50px;">
               <div class="services-2 d-flex">
-                <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
+                <div class="icon  mt-2 mr-3 d-flex justify-content-center align-items-center">
                   <span class="fab fa-accessible-icon"></span>
                 </div>
                 <div class="text">

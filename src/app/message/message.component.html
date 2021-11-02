@@ -19,22 +19,6 @@
     <div class="chat-scroll">
         <ul class="list-unstyled">
 
-            <li class="media sent" *ngFor ="let message of sentMessages">
-                <div class="media-body">
-                    <div class="msg-box">
-                        <div>
-                            <p>{{message.content}}</p>
-                            <ul class="chat-msg-info">
-                                <li>
-                                    <div class="chat-time">
-                                        <span>8:30 AM</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </li>
             <li class="media d-flex received" *ngFor ="let message of recievedMessages">
                 <div class="avatar">
                     <img src="../../assets/images/avatar.svg" alt="User Image" class="avatar-img rounded-circle">
@@ -47,7 +31,7 @@
                             <ul class="chat-msg-info">
                                 <li>
                                     <div class="chat-time">
-                                        <span>8:35 AM</span>
+                                        <span>{{message.timestamp|date:'shortTime'}}</span>
                                     </div>
                                 </li>
                             </ul>
@@ -55,6 +39,24 @@
                     </div>
                 </div>
             </li>
+
+            <li class="media sent" *ngFor ="let message of sentMessages">
+                <div class="media-body">
+                    <div class="msg-box">
+                        <div>
+                            <p>{{message.content}}</p>
+                            <ul class="chat-msg-info">
+                                <li>
+                                    <div class="chat-time">
+                                        <span>{{message.timestamp|date:'shortTime'}}</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            
 
 
 

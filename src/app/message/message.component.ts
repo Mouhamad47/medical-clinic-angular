@@ -21,10 +21,10 @@ export class MessageComponent implements OnInit {
   user_id: number = +localStorage.getItem('id');
   messageFrom: FormGroup;
   messagesCollection: AngularFirestoreCollection<Message>;
-  sentMessages : Message[];
-  recievedMessages : Message[];
+  sentMessages: Message[];
+  recievedMessages: Message[];
 
-  
+
 
 
   constructor(private route: ActivatedRoute, private httpClient: HttpClient, private apiservice: ApiService, private router: Router,
@@ -53,10 +53,10 @@ export class MessageComponent implements OnInit {
 
     // this.getUserInfo();
     setTimeout(() => {
-       this.getMessagesSent();
-       this.getMessagesRecieved();
+      this.getMessagesSent();
+      this.getMessagesRecieved();
     }, 500);
-   
+
 
   }
   getUserInfo() {
@@ -66,7 +66,10 @@ export class MessageComponent implements OnInit {
       console.log(this.user_id);
     })
   }
-
+  // sentMessage(){
+  //   let groupChatId: string = `${this.user_id}-${this.user.id}`;
+  //   this.apiservice.addMessage
+  // }
   sendMessage() {
     let timestamp: number = Date.now();
     let groupChatId: string = `${this.user_id}-${this.user.id}`;
@@ -76,8 +79,10 @@ export class MessageComponent implements OnInit {
       idTo: +this.user.id,
       timestamp: timestamp
     }
-    console.log(groupChatId);
-    // this.db1.
+    this.apiservice.addMessage(itemMessage, groupChatId)
+    this.messageFrom.reset();
+
+
   }
   setTwoIds(id1: number, id2: number) {
     this.apiservice.getTwoId(id1, id2);
@@ -90,13 +95,14 @@ export class MessageComponent implements OnInit {
       console.log(this.sentMessages);
     })
   }
-  getMessagesRecieved(){
-    let groupChatId : string = `${this.user.id}-${this.user_id}`;
-    this.apiservice.messagesFromTwoToOne(groupChatId).subscribe(data=>{
+  getMessagesRecieved() {
+    let groupChatId: string = `${this.user.id}-${this.user_id}`;
+    this.apiservice.messagesFromTwoToOne(groupChatId).subscribe(data => {
       this.recievedMessages = data;
       console.log(this.recievedMessages);
     })
   }
+
 
 
 

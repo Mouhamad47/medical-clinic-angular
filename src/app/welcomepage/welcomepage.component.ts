@@ -14,8 +14,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class WelcomepageComponent implements OnInit {
 
   // scroll:boolean = true;
-  // headeranimation:boolean = false;
-  // fade :boolean = false;
+  headeranimation: boolean = false;
+  fade: boolean = false;
   // today : string = new Date().toDateString();
   allMajors: Major[];
   consultationSlots: Array<string> = [
@@ -48,12 +48,26 @@ export class WelcomepageComponent implements OnInit {
       'major_id': new FormControl(null, [Validators.required]),
 
     })
-
+    this.imgAnimation();
+    this.headerAnimation();
     this.getAllMajors();
     this.desableSlot();
 
   }
- 
+
+  imgAnimation() {
+    if (this.fade === false) {
+
+      this.fade = true;
+    }
+  }
+  headerAnimation() {
+    if (this.headeranimation === false) {
+
+      this.headeranimation = true;
+    }
+  }
+
   getAllMajors() {
     this.apiservice.selectMajors().subscribe(data => {
       this.allMajors = data;
@@ -107,10 +121,10 @@ export class WelcomepageComponent implements OnInit {
       for (let j: number = 0; j < this.takenSlots.length; j++) {
         if (this.takenSlots[j] == this.consultationSlots[i]) {
           this.consultationSlots.splice(i, 1);
-        
+
         }
       }
-     
+
     }
 
 

@@ -196,6 +196,10 @@ export class ApiService {
     return this.afs.collection('messages').doc(s).collection(s).valueChanges();
   }
 
+  addMessage(message:Message ,s:string){
+    return this.afs.collection('messages').doc(s).collection(s).add(message);
+  }
+
 
 
 }
