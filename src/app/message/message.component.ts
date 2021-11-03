@@ -54,7 +54,7 @@ export class MessageComponent implements OnInit {
     // this.getUserInfo();
     setTimeout(() => {
       this.getMessagesSent();
-      this.getMessagesRecieved();
+      // this.getMessagesRecieved();
     }, 500);
 
 
@@ -91,17 +91,19 @@ export class MessageComponent implements OnInit {
     let groupChatId: string = `${this.user_id}-${this.user.id}`;
 
     this.apiservice.messagesFromOneToTwo(groupChatId).subscribe(data => {
-      this.sentMessages = data;
-      console.log(this.sentMessages);
+      this.sentMessages = data.sort((a,b)=>{
+        return a.timestamp -b.timestamp;
+      });
+      // console.log(this.sentMessages);
     })
   }
-  getMessagesRecieved() {
-    let groupChatId: string = `${this.user.id}-${this.user_id}`;
-    this.apiservice.messagesFromTwoToOne(groupChatId).subscribe(data => {
-      this.recievedMessages = data;
-      console.log(this.recievedMessages);
-    })
-  }
+  // getMessagesRecieved() {
+  //   let groupChatId: string = `${this.user.id}-${this.user_id}`;
+  //   this.apiservice.messagesFromTwoToOne(groupChatId).subscribe(data => {
+  //     this.recievedMessages = data;
+  //     console.log(this.recievedMessages);
+  //   })
+  // }
 
 
 

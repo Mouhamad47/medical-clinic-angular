@@ -43,7 +43,7 @@
                                 </td>
                                 <td>{{appointment.phone_number}}</td>
                                 <td>{{appointment.start_hour}} til {{appointment.end_hour}}</td>
-                                <td>{{appointment.date_of_appointment}}</td>
+                                <td>{{appointment.date_of_appointment | date : 'longDate'}}</td>
                                 <td>{{appointment.section.name}}</td>
                                 <td >
                                     <button class="btn btn-primary" (click) = "approveAppointment(appointment.id,i)"  >Approve </button>

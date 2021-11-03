@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { first } from 'rxjs/operators';
 import { ApiService } from './../api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 
@@ -13,7 +13,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit,OnDestroy{
 
   loginForm: FormGroup;
 
@@ -42,6 +42,11 @@ export class LoginComponent implements OnInit {
 
 
   }
+  ngOnDestroy() :void{
+    location.reload();
+
+  }
+  
 
   // login() {
   //   return this.afAuth.auth.signInWithEmailAndPassword(this.loginForm.get('email').value,this.loginForm.get('password').value)
@@ -64,6 +69,7 @@ export class LoginComponent implements OnInit {
       .subscribe(data => {
         if (data['role'] == 1) {
           this.router.navigate(['/admin/dashboard']);
+          
         }
 
       })

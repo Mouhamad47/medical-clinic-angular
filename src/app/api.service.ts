@@ -1,3 +1,4 @@
+import { Section } from './classes/section';
 import { Message } from './classes/message';
 import { Consultation } from './classes/consultation';
 import { JobApplication } from './classes/jobapplication';
@@ -11,6 +12,7 @@ import { catchError, map, tap, retry, first } from 'rxjs/operators';
 import { Major } from './classes/major';
 import { Appointment } from './classes/appointment';
 import { AngularFirestore,AngularFirestoreCollection,AngularFirestoreCollectionGroup,AngularFirestoreDocument } from 'angularfire2/firestore';
+import { Notification } from './classes/notifications';
 
 
 
@@ -20,6 +22,8 @@ import { AngularFirestore,AngularFirestoreCollection,AngularFirestoreCollectionG
 export class ApiService {
   redirectUrl: String;
   url = "http://127.0.0.1:8000";
+  // url = "http://medical-clinic.tk";
+
   // usertoken = this.getToken();
   usertoken = {
     headers: {
@@ -38,6 +42,7 @@ export class ApiService {
   // username = this.UserInfo['firstname'];
   // userrole = this.UserInfo['roles'];
   messagesCollection: AngularFirestoreCollection<Message>;
+  notificationCollection : AngularFirestoreCollection<Notification>;
 
 
 
@@ -88,6 +93,9 @@ export class ApiService {
   addConsultation(Consultation:Consultation){
     return this.httpClient.post<Consultation>(`${this.url}/api/createconsultation`, Consultation);
   }
+  addAppointment(Appointment:Appointment){
+    return this.httpClient.post<Appointment>(`${this.url}/api/createappointment`, Appointment);
+  }
   selectUserInfo():Observable<User[]>{
     return this.httpClient.get<User[]>(`${this.url}/api/userinfo`, this.usertoken);
   }
@@ -105,6 +113,9 @@ export class ApiService {
   }
   selectMajors():Observable<Major[]>{
     return this.httpClient.get<Major[]>(`${this.url}/api/getmajors`, this.usertoken);
+  }
+  selectSections():Observable<Section[]>{
+    return this.httpClient.get<Section[]>(`${this.url}/api/getsections`, this.usertoken);
   }
   selectLastTwoMajors():Observable<Major[]>{
     return this.httpClient.get<Major[]>(`${this.url}/api/getlasttwomajors`, this.usertoken);
@@ -173,6 +184,9 @@ export class ApiService {
   selectAvailableConsultationSlots(date:string, major_id:number):Observable<any>{
     return this.httpClient.get<any>(`${this.url}/api/getusedconsslots/`+date+`/`+major_id, this.usertoken)
   }
+  selectAvailableAppoinmentSlots(date:string, section_id:number):Observable<any>{
+    return this.httpClient.get<any>(`${this.url}/api/getusedappslots/`+date+`/`+section_id, this.usertoken)
+  }
   storeFirebaseUid(uid:string){
     return this.httpClient.post<string>(`${this.url}/api/storeuid`,String,this.usertoken )
   }
@@ -198,6 +212,12 @@ export class ApiService {
 
   addMessage(message:Message ,s:string){
     return this.afs.collection('messages').doc(s).collection(s).add(message);
+  }
+  getAdminNotifications(s:string):Observable<Notification[]>{
+    return this.afs.collection('notifications').doc(s).collection(s).valueChanges();
+  }
+  addNotification(notification:Notification, id:string){
+    return this.afs.collection('notifications').doc(id).collection(id).add(notification);
   }
 
 

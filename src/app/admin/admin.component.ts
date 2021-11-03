@@ -1,9 +1,11 @@
+import { Notification } from './../classes/notifications';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './../api.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
+// import { Notification } from '../classes/notifications';
 
 
 @Component({
@@ -15,6 +17,8 @@ export class AdminComponent implements OnInit {
 
   adminFirstName: String;
   adminLastName: String;
+  notifications :Notification[];
+  numberOfNotifications : number ;
 
   constructor(private http: HttpClient, private apiservice: ApiService, private route: ActivatedRoute, private router: Router, private afAuth: AngularFireAuth,
     private db: AngularFireDatabase) { }
@@ -23,7 +27,9 @@ export class AdminComponent implements OnInit {
     setTimeout(() => {
       this.getUserInfo();
     }, 2000);
-
+    this.getNotifications();
+    
+    
   }
   logOut() {
     this.apiservice.logOut();
@@ -40,6 +46,29 @@ export class AdminComponent implements OnInit {
 
     })
   }
+  getNotifications(){
+    let idTo : string = '1';
+    this.apiservice.getAdminNotifications(idTo).subscribe(data=>{
+      this.notifications = data.sort((a,b)=>{
+        return b.timestamp -a.timestamp;
+      });
+      // console.log(this.notifications)
+    })
+  }
+  // sortNotifications(notifications:Notification[]){
+  //   for (let i = 0; i < notifications.length; i++) {
+  //     for (let j = 0; j < notifications.length; j++) {
+  //      if(notifications[j].timestamp<notifications[j-1].timestamp){
+  //         let temp =notifications[j];
+  //         notifications[j] = notifications[j-1];
+  //         notifications[j-1] = temp;
+  //      }
+        
+  //     }
+      
+  //   }
+    
+  // }
 
 
 

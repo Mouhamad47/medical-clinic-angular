@@ -4,6 +4,7 @@ import { ApiService } from './../api.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Notification } from '../classes/notifications';
 
 @Component({
   selector: 'app-jobapplication',
@@ -28,10 +29,23 @@ export class JobapplicationComponent implements OnInit {
   }
   createJobApp() {
     this.apiservice.addJobApp(this.jobAppForm.value).subscribe((data:JobApplication)=>{
+      this.sendJobApplicationNotification();
       console.log('Sucess',data);
       this.jobAppForm.reset();
     })
     // console.log(this.jobAppForm.value);
+  }
+
+  sendJobApplicationNotification(){
+    let timestamp : number = Date.now();
+    let idTo : string = "1";
+    const itemNotification : Notification ={
+      content: "New Candidate has apply ",
+      idTo: 1,
+      timestamp: timestamp,
+      title: "Candidate"
+    }
+    this.apiservice.addNotification(itemNotification, idTo)
   }
 
 

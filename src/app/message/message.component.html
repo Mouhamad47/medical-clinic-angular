@@ -19,7 +19,7 @@
     <div class="chat-scroll">
         <ul class="list-unstyled">
 
-            <li class="media d-flex received" *ngFor ="let message of recievedMessages">
+            <!-- <li class="media d-flex received" *ngFor ="let message of recievedMessages">
                 <div class="avatar">
                     <img src="../../assets/images/avatar.svg" alt="User Image" class="avatar-img rounded-circle">
                 </div>
@@ -38,9 +38,10 @@
                         </div>
                     </div>
                 </div>
-            </li>
+            </li> -->
 
-            <li class="media sent" *ngFor ="let message of sentMessages">
+            <li [ngClass]="{'d-flex received' :message.idFrom!==1}" class="media sent" *ngFor ="let message of sentMessages">
+                
                 <div class="media-body">
                     <div class="msg-box">
                         <div>
