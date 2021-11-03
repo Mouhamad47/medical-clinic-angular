@@ -11,13 +11,22 @@ import { ApiService } from '../api.service';
 })
 export class AppointmentComponent implements OnInit {
   allAppointments : Appointment[];
-
+  showTable: boolean = true;
   constructor(private httpClient: HttpClient, private apiservice: ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.getAllAppointments();
+    // this.checkEmptyState();
   
   }
+  // checkEmptyState(){
+  //   if(this.allAppointments?.length>0){
+  //     this.showTable = true;
+  //   }
+  //   else{
+  //     this.showTable = false;
+  //   }
+  // }
 
   getAllAppointments(){
     this.apiservice.selectAppointments().subscribe(data=>{

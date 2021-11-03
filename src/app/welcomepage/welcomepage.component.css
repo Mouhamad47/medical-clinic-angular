@@ -246,6 +246,21 @@
     cursor: pointer;
     transition: 0.5s;
 }
+.btn-secondary {
+    width: 150px;
+    background-color: #6c757d;
+    border: none;
+    outline: none;
+    height: 49px;
+    border-radius: 49px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
 input.ng-invalid.ng-touched,textarea.ng-invalid.ng-touched{
     border: 1px solid red;
 }

@@ -12,11 +12,22 @@ import { ApiService } from '../api.service';
 export class CandidateComponent implements OnInit {
 
   candidates : JobApplication[];
+  showTable: boolean = true;
+
 
   constructor(private httpClient: HttpClient, private apiservice: ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.getAllCandidates();
+    this.checkEmptyState();
+  }
+  checkEmptyState(){
+    if(this.candidates?.length>0){
+      this.showTable = true;
+    }
+    else{
+      this.showTable = false;
+    }
   }
 
   getAllCandidates(){

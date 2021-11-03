@@ -110,7 +110,7 @@ export class WelcomepageComponent implements OnInit {
       alert('Appointment has been booked');
       this.appointmentForm.reset();
     })
-    
+   
   }
 
   getAvailableConsultationsSlots(date: string, major_id: number) {

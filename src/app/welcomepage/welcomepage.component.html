@@ -340,7 +340,7 @@
               </div>
               <div class="col-md-6">
                 <label for="recipient-name" class="col-form-label">Available Slots</label>
-                <select class="form-select" aria-label="Default select example" formControlName="start_hour" >
+                <select class="form-select" aria-label="Default select example" formControlName="start_hour">
                   <option *ngFor="let cs of appointmentsSlots" value="{{cs}}">{{cs}}</option>
 
                 </select>
@@ -424,7 +424,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-secondary" [ngClass]="consultationForm.invalid ? 'disabled': 'null'"
+              <button type="submit" class="btn btn-primary" [ngClass]="consultationForm.invalid ? 'disabled': 'null'"
                 [disabled]="consultationForm.invalid">Book</button>
             </div>
           </form>

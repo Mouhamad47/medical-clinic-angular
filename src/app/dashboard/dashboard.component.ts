@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
 
   }
   //Bar CHart
-  title = 'practice';
+  
 
   public myData: any = [];
 

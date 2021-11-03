@@ -14,7 +14,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
   styleUrls: ['./nurse.component.css']
 })
 export class NurseComponent implements OnInit {
-
+  showTable: boolean = true;
   addNurseForm: FormGroup;
   allNurses: User[];
   lastTwoMajors: Major[];

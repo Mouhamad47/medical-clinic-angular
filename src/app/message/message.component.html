@@ -1,4 +1,4 @@
-<div class="chat-header">
+<div class="chat-header" style="overflow: hidden !important;">
     <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
         <i class="material-icons">chevron_left</i>
     </a>
@@ -17,7 +17,7 @@
 </div>
 <div class="chat-body">
     <div class="chat-scroll">
-        <ul class="list-unstyled">
+        <ul class="list-unstyled" style="height: 530px !important ;">
 
             <!-- <li class="media d-flex received" *ngFor ="let message of recievedMessages">
                 <div class="avatar">
@@ -46,7 +46,7 @@
                     <div class="msg-box">
                         <div>
                             <p>{{message.content}}</p>
-                            <ul class="chat-msg-info">
+                            <ul class="chat-msg-info" >
                                 <li>
                                     <div class="chat-time">
                                         <span>{{message.timestamp|date:'shortTime'}}</span>

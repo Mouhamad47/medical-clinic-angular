@@ -15,6 +15,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 export class DoctorComponent implements OnInit {
   addDoctorForm: FormGroup;
+  showTable: boolean = true;
 
   allMajors: Major[];
   allDoctors: User[];

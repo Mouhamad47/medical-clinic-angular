@@ -19,7 +19,16 @@ export class ConsultationComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllConsultations();
+    this.checkEmptyState();
 
+  }
+  checkEmptyState() {
+    if (this.allConsultations?.length > 0) {
+      this.showTable = true;
+    }
+    else {
+      this.showTable = false;
+    }
   }
   getAllConsultations() {
     this.apiservice.selectConsultations().subscribe(data => {
@@ -33,7 +42,7 @@ export class ConsultationComponent implements OnInit {
       this.allConsultations.splice(i, 1);
       alert("Consultation has been Approved");
     })
-    
+
   }
   declineConsultation(id: number, i: number) {
     this.apiservice.deleteConsultations(id).subscribe((Consultation: Consultation) => {
@@ -43,15 +52,15 @@ export class ConsultationComponent implements OnInit {
     })
   }
   sendNotificationToDoctor(user_id: number) {
-    let idTo :string = `${user_id}`;
-    let timestamp : number = Date.now();
-    const itemNotification : Notification ={
+    let idTo: string = `${user_id}`;
+    let timestamp: number = Date.now();
+    const itemNotification: Notification = {
       content: "You have a new booking check your calendar",
       idTo: user_id,
       timestamp: timestamp,
       title: "Consultation Approved"
     }
-    this.apiservice.addNotification(itemNotification,idTo);
+    this.apiservice.addNotification(itemNotification, idTo);
     console.log(idTo)
   }
 

@@ -17,7 +17,7 @@
 <div class="container">
 
 
-    <div class="row">
+    <div class="row" *ngIf="showTable">
         <div class="col-lg-6" *ngFor=" let candidate of candidates ; let i =index">
             <div class="candidates-listing-item">
                 <div class="list-grid-item mt-4 p-2">
@@ -78,5 +78,14 @@
             </div>
         </div>
 
+    </div>
+    <div class="row" *ngIf="!showTable">
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <img style="height: 400px;" class="img-fluid mx-auto d-block" src="../../assets/images/emptystate1.svg" alt="">
+                <br>
+                <h2 style="text-align: center;letter-spacing: 8px;margin-left: 105px;">No Candidates for now</h2>
+            </div>
+        </div>
     </div>
 </div>
