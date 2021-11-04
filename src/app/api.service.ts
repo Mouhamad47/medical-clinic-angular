@@ -147,11 +147,17 @@ export class ApiService {
   deleteAppointment(id:number){
     return this.httpClient.get<Appointment>(`${this.url}/api/deleteappointment/`+id, this.usertoken);
   }
+  declineAppoinments(id:number){
+    return this.httpClient.put<Appointment>(`${this.url}/api/declineappointment/`+id, this.usertoken);
+  }
   approveAppointments(id:number){
     return this.httpClient.put<Appointment>(`${this.url}/api/approveappointment/`+id, this.usertoken);
   }
   deleteConsultations(id:number){
     return this.httpClient.delete<Consultation>(`${this.url}/api/deleteconsultation/`+id, this.usertoken);
+  }
+  declineConsultations(id:number){
+    return this.httpClient.put<Consultation>(`${this.url}/api/declineconsultation/`+id, this.usertoken);
   }
   approveConsultations(id:number){
     return this.httpClient.put<Consultation>(`${this.url}/api/approveconsultation/`+id, this.usertoken);
@@ -196,11 +202,7 @@ export class ApiService {
   // putProfilePassword(User:User){
   //   return this.httpClient.post<User>(`${this.url}/api/updateprofile`, User,this.usertoken );
   // }
-  getTwoId(idOne, idTwo){
-    this.idFrom = idOne;
-    this.idTo = idTwo;
-    return this.idFrom,this.idTo
-  }
+  
 
   messagesFromOneToTwo(s: string): Observable<Message[]> {
     return this.afs.collection('messages').doc(s).collection(s).valueChanges();

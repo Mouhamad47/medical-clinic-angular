@@ -36,7 +36,7 @@ export class AppointmentComponent implements OnInit {
   }
   
   declineAppointment(id:number,i:number){
-    this.apiservice.deleteAppointment(id).subscribe((Appointment:Appointment)=>{
+    this.apiservice.declineAppoinments(id).subscribe((Appointment:Appointment)=>{
       this.allAppointments.splice(i,1);
       console.log(id);
       alert("Appointment has been declined");

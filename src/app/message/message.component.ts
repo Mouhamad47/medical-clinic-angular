@@ -84,9 +84,9 @@ export class MessageComponent implements OnInit {
 
 
   }
-  setTwoIds(id1: number, id2: number) {
-    this.apiservice.getTwoId(id1, id2);
-  }
+  // setTwoIds(id1: number, id2: number) {
+  //   this.apiservice.getTwoId(id1, id2);
+  // }
   getMessagesSent() {
     let groupChatId: string = `${this.user_id}-${this.user.id}`;
 
