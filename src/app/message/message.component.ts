@@ -1,7 +1,7 @@
 import { Message } from './../classes/message';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -15,8 +15,9 @@ import { Observable } from 'rxjs';
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.css']
 })
-export class MessageComponent implements OnInit {
+export class MessageComponent implements OnInit, AfterViewChecked  {
 
+  @ViewChild('scroller') private messageContainer: ElementRef
   user: { id: number, firstname: string, lastname: string }
   user_id: number = +localStorage.getItem('id');
   messageFrom: FormGroup;
@@ -59,6 +60,15 @@ export class MessageComponent implements OnInit {
 
 
   }
+  scrollToBottom(): void{
+    this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight
+  }
+
+  ngAfterViewChecked(){
+      this.scrollToBottom()
+  }
+
+
   getUserInfo() {
     this.apiservice.selectUserInfo().subscribe(data => {
       // console.log(data['id']);
