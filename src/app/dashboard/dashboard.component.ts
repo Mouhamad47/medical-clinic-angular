@@ -25,6 +25,8 @@ export class DashboardComponent implements OnInit {
   constructor(private httpClient: HttpClient, private apiservice: ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.getChartData();
+    this.getPieChartData();
     this.getNumberOfDoctors();
     this.getNumberOfNurses();
     this.getNumberOfConsultations();
@@ -33,8 +35,7 @@ export class DashboardComponent implements OnInit {
     this.getDeclinedAppointments();
     this.getApprovedConsultations();
     this.getDeclinedConsultations();
-    this.getChartData();
-    this.getPieChartData();
+   
 
 
   }

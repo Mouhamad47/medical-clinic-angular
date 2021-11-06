@@ -63,9 +63,9 @@
                         <label for="recipient-name" class="col-form-label">Role</label>
                         <input type="text" class="form-control" id="recipient-name7" formControlName="role" >
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer" style="margin-top:20px !important;">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Add</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="addNurseForm.invalid">Add</button>
                     </div>
                 </form>
             </div>
