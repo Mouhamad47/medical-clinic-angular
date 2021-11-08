@@ -33,7 +33,7 @@ export class CandidateComponent implements OnInit {
   getAllCandidates(){
     this.apiservice.selectCandidates().subscribe(data=>{
       this.candidates = data;
-      console.log(data);
+      
     })
   }
   approveCandidate(id:number, i:number){
@@ -41,7 +41,7 @@ export class CandidateComponent implements OnInit {
       this.candidates.splice(i,1);
       console.log("Candidate declined");
     })
-    console.log(id);
+    
   }
 
 }

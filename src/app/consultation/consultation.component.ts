@@ -33,7 +33,6 @@ export class ConsultationComponent implements OnInit {
   getAllConsultations() {
     this.apiservice.selectConsultations().subscribe(data => {
       this.allConsultations = data;
-      console.log(data);
     })
   }
 
@@ -60,7 +59,6 @@ export class ConsultationComponent implements OnInit {
       title: "Consultation Approved"
     }
     this.apiservice.addNotification(itemNotification, idTo);
-    console.log(idTo)
   }
 
 }

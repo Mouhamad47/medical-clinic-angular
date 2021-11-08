@@ -2,12 +2,12 @@
     <div class="row">
         <div class="col-sm-6">
             <h3 class="page-title">Settings</h3>
-            
+
         </div>
     </div>
 </div>
 <div class="row">
-   
+
     <div class="col-xl-6 col-md-8">
         <div class="card">
             <div class="card-header">
@@ -15,19 +15,17 @@
             </div>
             <div class="card-body">
 
-                <form [formGroup] = "editProfileForm" (ngSubmit)="updateProfile()">
+                <form [formGroup]="editProfileForm" (ngSubmit)="updateProfile()">
                     <div class="row form-group">
                         <label for="name" class="col-sm-3 col-form-label input-label">Profile</label>
                         <div class="col-sm-9">
                             <div class="d-flex align-items-center">
-                                <label class="avatar avatar-xxl profile-cover-avatar m-0"
-                                    for="edit_img">
-                                    <img id="avatarImg" class="avatar-img"
-                                    src="../../assets/images/avatar.svg" alt="Profile Image">
+                                <label class="avatar avatar-xxl profile-cover-avatar m-0" for="edit_img">
+                                    <img id="avatarImg" class="avatar-img" src="../../assets/images/avatar.svg"
+                                        alt="Profile Image">
                                     <input type="file" id="edit_img">
                                     <span class="avatar-edit">
-                                        <i data-feather="edit-2"
-                                            class="avatar-uploader-icon shadow-soft"></i>
+                                        <i data-feather="edit-2" class="avatar-uploader-icon shadow-soft"></i>
                                     </span>
                                 </label>
                             </div>
@@ -37,25 +35,25 @@
                         <label for="name" class="col-sm-3 col-form-label input-label">First Name</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="first_name" placeholder="Your first name"
-                                value=""  formControlName="first_name" >
+                                value="" formControlName="first_name">
                         </div>
                     </div>
                     <div class="row form-group">
                         <label for="name" class="col-sm-3 col-form-label input-label">Last Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="last_name" placeholder="Your last name"
-                                value=""  formControlName="last_name">
+                            <input type="text" class="form-control" id="last_name" placeholder="Your last name" value=""
+                                formControlName="last_name">
                         </div>
                     </div>
-                   
+
                     <div class="row form-group">
                         <label for="addressline1" class="col-sm-3 col-form-label input-label">Address</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="addressline1"
-                                placeholder="Your address" value=""  formControlName="address">
+                            <input type="text" class="form-control" id="addressline1" placeholder="Your address"
+                                value="" formControlName="address">
                         </div>
                     </div>
-                    
+
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary">Save Changes</button>
                     </div>
@@ -69,15 +67,15 @@
             <div class="card-header">
                 <h5 class="card-title">Change Password</h5>
             </div>
-            <div class="card-body" style="height: 420px;" >
+            <div class="card-body" style="height: 420px;">
 
-                <form [formGroup] = "editPassowrd" >
+                <form [formGroup]="editPassowrd">
                     <div class="row form-group">
-                        <label for="current_password"
-                            class="col-sm-3 col-form-label input-label">Current Password</label>
+                        <label for="current_password" class="col-sm-3 col-form-label input-label">Current
+                            Password</label>
                         <div class="col-sm-9">
                             <input type="password" class="form-control" id="current_password"
-                                placeholder="Enter current password" formControlName="current_password"  >
+                                placeholder="Enter current password" formControlName="current_password">
                         </div>
                     </div>
                     <div class="row form-group">
@@ -89,8 +87,8 @@
                         </div>
                     </div>
                     <div class="row form-group">
-                        <label for="confirm_password"
-                            class="col-sm-3 col-form-label input-label">Confirm new password</label>
+                        <label for="confirm_password" class="col-sm-3 col-form-label input-label">Confirm new
+                            password</label>
                         <div class="col-sm-9">
                             <div class="mb-3">
                                 <input type="password" class="form-control" id="confirm_password"
@@ -101,8 +99,6 @@
                             <ul class="list-unstyled small">
                                 <li>Minimum 8 characters long - the more, the better</li>
                                 <li>Maximum 15 characters </li>
-                                <!-- <li>At least one uppercase character</li>
-                                <li>At least one number, symbol</li> -->
                             </ul>
                         </div>
                     </div>

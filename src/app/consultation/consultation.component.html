@@ -3,12 +3,10 @@
         <div class="col">
             <h3 class="page-title">Consultations</h3>
         </div>
-       
+
     </div>
 </div>
-
-
-<div class="row"  >
+<div class="row">
     <div class="col-sm-12">
         <div class="card card-table">
             <div class="card-body">
@@ -26,13 +24,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor= "let consultation of allConsultations;let i= index ">
+                            <tr *ngFor="let consultation of allConsultations;let i= index ">
                                 <td>
                                     <h2 class="table-avatar">
-                                        <a  class="avatar avatar-sm me-2"><img
-                                                class="avatar-img rounded-circle"
-                                                src="../../assets/images/avatar.svg"
-                                                alt="User Image"></a>
+                                        <a class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle"
+                                                src="../../assets/images/avatar.svg" alt="User Image"></a>
                                         <a>{{consultation.first_name}} {{consultation.last_name}}</a>
                                     </h2>
                                 </td>
@@ -41,33 +37,23 @@
                                 </td>
                                 <td>{{consultation.phone_number}}</td>
                                 <td>{{consultation.start_hour}} til {{consultation.end_hour}}</td>
-                                <td>{{consultation.date_of_consultation  | date : 'longDate'}}</td>
+                                <td>{{consultation.date_of_consultation | date : 'longDate'}}</td>
                                 <td>{{consultation.major_name}}</td>
-                                <td >
-                                    <button class="btn btn-primary" (click) = "approveConsultation(consultation.id,i);sendNotificationToDoctor(consultation.user_id)" >Approve </button>
-                                    
-                                    <button class="btn btn-danger" (click) = "declineConsultation(consultation.id,i)">Decline</button>
+                                <td>
+                                    <button class="btn btn-primary"
+                                        (click)="approveConsultation(consultation.id,i);sendNotificationToDoctor(consultation.user_id)">Approve
+                                    </button>
+
+                                    <button class="btn btn-danger"
+                                        (click)="declineConsultation(consultation.id,i)">Decline</button>
                                 </td>
                             </tr>
-                           
-                            
-                            
                         </tbody>
                     </table>
                 </div>
 
-              
+
             </div>
         </div>
     </div>
 </div>
-
-<!-- <div class="row" *ngIf="!showTable">
-    <div class="container-fluid">
-        <div class="col-md-12">
-            <img style="height: 400px;" class="img-fluid mx-auto d-block" src="../../assets/images/emptystate.svg" alt="">
-            <br>
-            <h2 style="text-align: center;letter-spacing: 8px;margin-left: 105px;">This Table is empty</h2>
-        </div>
-    </div>
-</div> -->

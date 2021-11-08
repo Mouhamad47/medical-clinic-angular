@@ -1,5 +1,5 @@
 import { JobApplication } from './../classes/jobapplication';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './../api.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -22,24 +22,23 @@ export class JobapplicationComponent implements OnInit {
       'last_name': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'address': new FormControl(null, [Validators.required, Validators.minLength(4), Validators.maxLength(15)]),
-      'phone_number': new FormControl(null, [Validators.required,Validators.minLength(8), Validators.maxLength(8)]),
+      'phone_number': new FormControl(null, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]),
       'degree': new FormControl('Registered Nurse', [Validators.required]),
       'experience_description': new FormControl(null, [Validators.required, Validators.minLength(20), Validators.maxLength(40)]),
     });
   }
   createJobApp() {
-    this.apiservice.addJobApp(this.jobAppForm.value).subscribe((data:JobApplication)=>{
+    this.apiservice.addJobApp(this.jobAppForm.value).subscribe((data: JobApplication) => {
       this.sendJobApplicationNotification();
-      console.log('Sucess',data);
       this.jobAppForm.reset();
     })
-    // console.log(this.jobAppForm.value);
+
   }
 
-  sendJobApplicationNotification(){
-    let timestamp : number = Date.now();
-    let idTo : string = "1";
-    const itemNotification : Notification ={
+  sendJobApplicationNotification() {
+    let timestamp: number = Date.now();
+    let idTo: string = "1";
+    const itemNotification: Notification = {
       content: "New Candidate has apply ",
       idTo: 1,
       timestamp: timestamp,

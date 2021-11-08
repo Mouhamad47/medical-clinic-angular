@@ -3,12 +3,9 @@
         <div class="col">
             <h3 class="page-title">Appointments</h3>
         </div>
-        
+
     </div>
 </div>
-
-
-
 
 <div class="row">
     <div class="col-sm-12">
@@ -28,13 +25,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor = "let appointment of allAppointments; let i=index ">
+                            <tr *ngFor="let appointment of allAppointments; let i=index ">
                                 <td>
                                     <h2 class="table-avatar">
-                                        <a class="avatar avatar-sm me-2"><img
-                                                class="avatar-img rounded-circle"
-                                                src="../../assets/images/avatar.svg"
-                                                alt="User Image"></a>
+                                        <a class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle"
+                                                src="../../assets/images/avatar.svg" alt="User Image"></a>
                                         <a>{{appointment.first_name}} {{appointment.last_name}}</a>
                                     </h2>
                                 </td>
@@ -45,15 +40,14 @@
                                 <td>{{appointment.start_hour}} til {{appointment.end_hour}}</td>
                                 <td>{{appointment.date_of_appointment | date : 'longDate'}}</td>
                                 <td>{{appointment.section.name}}</td>
-                                <td >
-                                    <button class="btn btn-primary" (click) = "approveAppointment(appointment.id,i)"  >Approve </button>
-                                    
-                                    <button class="btn btn-danger" (click) ="declineAppointment(appointment.id,i)" >Decline</button>
+                                <td>
+                                    <button class="btn btn-primary"
+                                        (click)="approveAppointment(appointment.id,i)">Approve </button>
+
+                                    <button class="btn btn-danger"
+                                        (click)="declineAppointment(appointment.id,i)">Decline</button>
                                 </td>
                             </tr>
-                            
-                            
-                            
                         </tbody>
                     </table>
                 </div>
@@ -61,13 +55,3 @@
         </div>
     </div>
 </div>
-
-<!-- <div class="row" >
-    <div class="container-fluid">
-        <div class="col-md-12">
-            <img style="height: 400px;" class="img-fluid mx-auto d-block" src="../../assets/images/emptystate.svg" alt="">
-            <br>
-            <h2 style="text-align: center;letter-spacing: 8px;margin-left: 105px;">This Table is empty</h2>
-        </div>
-    </div>
-</div> -->

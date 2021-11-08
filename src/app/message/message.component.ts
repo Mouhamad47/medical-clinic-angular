@@ -5,7 +5,6 @@ import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@ang
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { AngularFireAuth } from 'angularfire2/auth';
-// import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 
@@ -15,7 +14,7 @@ import { Observable } from 'rxjs';
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.css']
 })
-export class MessageComponent implements OnInit, AfterViewChecked  {
+export class MessageComponent implements OnInit, AfterViewChecked {
 
   @ViewChild('scroller') private messageContainer: ElementRef
   user: { id: number, firstname: string, lastname: string }
@@ -24,9 +23,6 @@ export class MessageComponent implements OnInit, AfterViewChecked  {
   messagesCollection: AngularFirestoreCollection<Message>;
   sentMessages: Message[];
   recievedMessages: Message[];
-
-
-
 
   constructor(private route: ActivatedRoute, private httpClient: HttpClient, private apiservice: ApiService, private router: Router,
     private afs: AngularFirestore) {
@@ -50,36 +46,29 @@ export class MessageComponent implements OnInit, AfterViewChecked  {
       'message': new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(30)])
     })
 
-
-
-    // this.getUserInfo();
     setTimeout(() => {
       this.getMessagesSent();
-      // this.getMessagesRecieved();
+
     }, 500);
 
 
   }
-  scrollToBottom(): void{
+  scrollToBottom(): void {
     this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight
   }
 
-  ngAfterViewChecked(){
-      this.scrollToBottom()
+  ngAfterViewChecked() {
+    this.scrollToBottom()
   }
 
 
   getUserInfo() {
     this.apiservice.selectUserInfo().subscribe(data => {
-      // console.log(data['id']);
       this.user_id = data['id'];
       console.log(this.user_id);
     })
   }
-  // sentMessage(){
-  //   let groupChatId: string = `${this.user_id}-${this.user.id}`;
-  //   this.apiservice.addMessage
-  // }
+
   sendMessage() {
     let timestamp: number = Date.now();
     let groupChatId: string = `${this.user_id}-${this.user.id}`;
@@ -94,26 +83,17 @@ export class MessageComponent implements OnInit, AfterViewChecked  {
 
 
   }
-  // setTwoIds(id1: number, id2: number) {
-  //   this.apiservice.getTwoId(id1, id2);
-  // }
+
   getMessagesSent() {
     let groupChatId: string = `${this.user_id}-${this.user.id}`;
 
     this.apiservice.messagesFromOneToTwo(groupChatId).subscribe(data => {
-      this.sentMessages = data.sort((a,b)=>{
-        return a.timestamp -b.timestamp;
+      this.sentMessages = data.sort((a, b) => {
+        return a.timestamp - b.timestamp;
       });
-      // console.log(this.sentMessages);
     })
   }
-  // getMessagesRecieved() {
-  //   let groupChatId: string = `${this.user.id}-${this.user_id}`;
-  //   this.apiservice.messagesFromTwoToOne(groupChatId).subscribe(data => {
-  //     this.recievedMessages = data;
-  //     console.log(this.recievedMessages);
-  //   })
-  // }
+
 
 
 

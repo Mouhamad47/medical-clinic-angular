@@ -35,13 +35,9 @@ export class DashboardComponent implements OnInit {
     this.getDeclinedAppointments();
     this.getApprovedConsultations();
     this.getDeclinedConsultations();
-   
-
-
   }
   //Bar CHart
   
-
   public myData: any = [];
 
   public chartColumns = ['Month', 'Consultations', 'Appointments'];
@@ -81,7 +77,6 @@ export class DashboardComponent implements OnInit {
       this.viewAppointments = "Accepted"
     }
   }
-
   getApprovedAppointments() {
     this.apiservice.selectApprovedAppointments().subscribe(data => {
       this.approvedAppointments = data;
@@ -125,14 +120,12 @@ export class DashboardComponent implements OnInit {
   getChartData() {
     this.apiservice.selectConsultationsAppointments().subscribe(data => {
       this.myData = data;
-      console.log(data);
+      
     })
   }
   getPieChartData() {
     this.apiservice.selectConsultationGroupedByMajor().subscribe(data => {
        this.myData1 = data;
-      console.log(data);
-
     })
 
   }

@@ -24,7 +24,7 @@ export class ApiService {
   url = "http://127.0.0.1:8000";
   // url = "http://medical-clinic.tk";
 
-  // usertoken = this.getToken();
+  
   usertoken = {
     headers: {
       'Accept': 'application/json',
@@ -32,36 +32,20 @@ export class ApiService {
       'Authorization': 'Bearer ' + this.getToken()
     },
   }
-
-  // messagesCollection :AngularFirestoreCollection<Message>;
-  // messages : Observable<Message[]>
   idFrom : number;
   idTo : number;
-  
-  // UserInfo = this.getUserDetails();
-  // username = this.UserInfo['firstname'];
-  // userrole = this.UserInfo['roles'];
   messagesCollection: AngularFirestoreCollection<Message>;
   notificationCollection : AngularFirestoreCollection<Notification>;
-
-
-
-
   constructor(private httpClient: HttpClient, private route: ActivatedRoute,public afs:AngularFirestore) {
     
    }
-  //  getItems(){
-  //    return this.messages;
-  //  }
-
-
+  
   loginVerification(email, password): Observable<User[]> {
     return this.httpClient.post<User[]>(`${this.url}/api/login`, { email, password })
       .pipe(map(User => {
         if(User['user']['role'] ==1 ){
           this.setToken(User['access_token']);
           localStorage.setItem('id',User['user']['id'])
-          // console.log(User);
           return User['user'];
         }else{
           return null;
@@ -199,11 +183,7 @@ export class ApiService {
   selectAllUsersExceptOne(id:number):Observable<User[]>{
     return this.httpClient.get<User[]>(`${this.url}/api/getalluerexceptlogged/`+id);
   }
-  // putProfilePassword(User:User){
-  //   return this.httpClient.post<User>(`${this.url}/api/updateprofile`, User,this.usertoken );
-  // }
   
-
   messagesFromOneToTwo(s: string): Observable<Message[]> {
     return this.afs.collection('messages').doc(s).collection(s).valueChanges();
 

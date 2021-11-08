@@ -40,29 +40,12 @@ export class LoginComponent implements OnInit,OnDestroy{
 
     })
 
-
   }
   ngOnDestroy() :void{
     location.reload();
 
   }
   
-
-  // login() {
-  //   return this.afAuth.auth.signInWithEmailAndPassword(this.loginForm.get('email').value,this.loginForm.get('password').value)
-  //   .then((auth)=>{
-
-  //     this.apiservice.loginVerification(this.loginForm.get('email').value,this.loginForm.get('password').value)
-  //     .pipe(first())
-  //     .subscribe(data => {
-  //       if (data['role'] == 1) {
-  //         this.router.navigate(['/admin/dashboard']);
-  //       }
-
-  //     })
-  //   })
-
-  // }
   login() {
     this.apiservice.loginVerification(this.loginForm.get('email').value, this.loginForm.get('password').value)
       .pipe(first())
@@ -75,9 +58,4 @@ export class LoginComponent implements OnInit,OnDestroy{
       })
 
   }
-
-
-
-
-
 }

@@ -9,8 +9,6 @@
                 data-bs-whatever="@mdo">
                 <i class="fas fa-plus"></i> Add Doctor
             </button>
-
-
         </div>
     </div>
 </div>
@@ -74,7 +72,7 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary"
                             [ngClass]="addDoctorForm.invalid ? 'disabled': 'null'"
-                            [disabled]="addDoctorForm.invalid" >Add</button>
+                            [disabled]="addDoctorForm.invalid">Add</button>
                     </div>
                 </form>
             </div>
@@ -98,7 +96,6 @@
                                 <th>Email Address</th>
                                 <th>Employment Date</th>
                                 <th>Address</th>
-                                <!-- <th>Status</th> -->
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -115,7 +112,6 @@
                                 <td>{{doctor.email}}</td>
                                 <td>{{doctor.date_of_employment | date : 'longDate'}}</td>
                                 <td>{{doctor.address}}</td>
-                                <!-- <td><span class="badge bg-success-light">Accepted</span></td> -->
                                 <td>
                                     <button class="btn btn-danger" id={{doctor.id}}>Delete</button>
                                 </td>

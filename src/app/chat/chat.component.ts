@@ -13,12 +13,10 @@ export class ChatComponent implements OnInit {
 
   allUserExcepetOne: User[];
 
-
   constructor(private httpClient: HttpClient, private apiservice: ApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.getUserProfile();
-
   }
 
   getAllUserExceptOne(id: number) {
@@ -27,16 +25,12 @@ export class ChatComponent implements OnInit {
       console.log(data);
     })
   }
-
   getUserProfile(){
     this.apiservice.selectUserInfo().subscribe(response=>{
       setTimeout(() => {
-
         this.getAllUserExceptOne(response['id']);
-
-      }, 500);
-      
-      
+      }, 200);
+          
     })
   }
 

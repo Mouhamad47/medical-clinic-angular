@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
-// import { Notification } from '../classes/notifications';
+
 
 
 @Component({
@@ -52,23 +52,9 @@ export class AdminComponent implements OnInit {
       this.notifications = data.sort((a,b)=>{
         return b.timestamp -a.timestamp;
       });
-      // console.log(this.notifications)
+      
     })
   }
-  // sortNotifications(notifications:Notification[]){
-  //   for (let i = 0; i < notifications.length; i++) {
-  //     for (let j = 0; j < notifications.length; j++) {
-  //      if(notifications[j].timestamp<notifications[j-1].timestamp){
-  //         let temp =notifications[j];
-  //         notifications[j] = notifications[j-1];
-  //         notifications[j-1] = temp;
-  //      }
-        
-  //     }
-      
-  //   }
-    
-  // }
 
 
 

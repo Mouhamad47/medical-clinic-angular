@@ -16,18 +16,8 @@ export class AppointmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllAppointments();
-    // this.checkEmptyState();
-  
   }
-  // checkEmptyState(){
-  //   if(this.allAppointments?.length>0){
-  //     this.showTable = true;
-  //   }
-  //   else{
-  //     this.showTable = false;
-  //   }
-  // }
-
+ 
   getAllAppointments(){
     this.apiservice.selectAppointments().subscribe(data=>{
       this.allAppointments = data;

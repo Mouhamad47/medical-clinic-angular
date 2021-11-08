@@ -46,7 +46,6 @@ h4::before{
     bottom: 0;
     content: '';
     opacity: 0.05;
-    /* background-image: url('/assets/images/backgroundfooter.jpg'); */
 }
 p{
     color: white;

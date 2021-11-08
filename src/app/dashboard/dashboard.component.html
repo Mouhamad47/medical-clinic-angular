@@ -13,12 +13,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="progress progress-sm mt-3">
-                    <div class="progress-bar bg-5" role="progressbar" style="width: 75%" aria-valuenow="75"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="text-muted mt-3 mb-0"><span class="text-danger me-1"><i
-                            class="fas fa-arrow-down me-1"></i>1.15%</span> since last week</p> -->
             </div>
         </div>
     </div>
@@ -36,12 +30,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="progress progress-sm mt-3">
-                    <div class="progress-bar bg-6" role="progressbar" style="width: 65%" aria-valuenow="75"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="text-muted mt-3 mb-0"><span class="text-success me-1"><i
-                            class="fas fa-arrow-up me-1"></i>2.37%</span> since last week</p> -->
             </div>
         </div>
     </div>
@@ -59,12 +47,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="progress progress-sm mt-3">
-                    <div class="progress-bar bg-7" role="progressbar" style="width: 85%" aria-valuenow="75"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="text-muted mt-3 mb-0"><span class="text-success me-1"><i
-                            class="fas fa-arrow-up me-1"></i>3.77%</span> since last week</p> -->
             </div>
         </div>
     </div>
@@ -82,12 +64,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="progress progress-sm mt-3">
-                    <div class="progress-bar bg-8" role="progressbar" style="width: 45%" aria-valuenow="75"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="text-muted mt-3 mb-0"><span class="text-danger me-1"><i
-                            class="fas fa-arrow-down me-1"></i>8.68%</span> since last week</p> -->
             </div>
         </div>
     </div>
@@ -98,20 +74,14 @@
             <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
                     <h5 class="card-title">Consultations & Appointments Analytics</h5>
-                    
                 </div>
             </div>
             <div class="card-body">
                 <div class="d-flex align-items-center justify-content-between flex-wrap flex-md-nowrap">
-                    
+
                 </div>
                 <div id="sales_chart">
-                    <google-chart
-                       
-                        [type]="type" 
-                        [data]="myData" 
-                        [columns]="chartColumns"
-                        [options]="myOptions"
+                    <google-chart [type]="type" [data]="myData" [columns]="chartColumns" [options]="myOptions"
                         style="width: 500px;height: 500px;">
                     </google-chart>
                 </div>
@@ -122,22 +92,15 @@
         <div class="card flex-fill">
             <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="card-title">Invoice Analytics</h5>
-                    
+                    <h5 class="card-title">Consultations Majors Analytics</h5>
                 </div>
             </div>
             <div class="card-body">
                 <div id="invoice_chart">
-                    <google-chart
-                 
-                    [type]="type1" 
-                    [data]="myData1" 
-                    [columns]="chartColumns1"
-                    [options]="myOptions1"
-                    style="width: 500px;height: 400px;">
-                </google-chart>
+                    <google-chart [type]="type1" [data]="myData1" [columns]="chartColumns1" [options]="myOptions1"
+                        style="width: 500px;height: 400px;">
+                    </google-chart>
                 </div>
-               
             </div>
         </div>
     </div>
@@ -152,72 +115,63 @@
                     </div>
                     <div class="col-auto">
                         <div class="btn-group">
-                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              View
+                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                View
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" (click)="clickViewConsultation()">Accepted</a></li>
                                 <li><a class="dropdown-item" (click)="clickViewConsultation()">Rejected</a></li>
-                                
                             </ul>
-                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="card-body">
                 <div class="mb-3">
-                    
                 </div>
-                <div class="table-responsive-md scrollable" [ngSwitch]="viewConsultations" >
+                <div class="table-responsive-md scrollable" [ngSwitch]="viewConsultations">
                     <table class="table table-stripped table-hover" *ngSwitchCase="'Accepted'">
                         <thead class="thead-light">
-                            <tr >
+                            <tr>
                                 <th>Patient</th>
                                 <th>Time</th>
                                 <th>Date</th>
                                 <th>Status</th>
-                                
                             </tr>
                         </thead>
-                        
                         <tbody>
-                           
-                            <tr *ngFor = "let appcons of approvedConsultations; let i=index " >
+                            <tr *ngFor="let appcons of approvedConsultations; let i=index ">
                                 <td>
                                     <h2 class="table-avatar">
-                                        <a >{{appcons.first_name}} {{appcons.last_name}}</a>
+                                        <a>{{appcons.first_name}} {{appcons.last_name}}</a>
                                     </h2>
                                 </td>
                                 <td>{{appcons.start_hour}}-{{appcons.end_hour}}</td>
                                 <td>{{appcons.date_of_consultation}}</td>
                                 <td><span class="badge bg-success-light">Accepted</span></td>
-                                
                             </tr>
                         </tbody>
                     </table>
-                    <table class="table table-stripped table-hover" *ngSwitchCase="'Rejected'"  >
+                    <table class="table table-stripped table-hover" *ngSwitchCase="'Rejected'">
                         <thead class="thead-light">
-                            <tr >
+                            <tr>
                                 <th>Patient</th>
                                 <th>Time</th>
                                 <th>Date</th>
                                 <th>Status</th>
-                                
                             </tr>
                         </thead>
-                        
                         <tbody>
-                           
-                            <tr *ngFor = "let deccons of declinedConsultations; let i=index " >
+                            <tr *ngFor="let deccons of declinedConsultations; let i=index ">
                                 <td>
                                     <h2 class="table-avatar">
-                                        <a >{{deccons.first_name}} {{deccons.last_name}}</a>
+                                        <a>{{deccons.first_name}} {{deccons.last_name}}</a>
                                     </h2>
                                 </td>
                                 <td>{{deccons.start_hour}}-{{deccons.end_hour}}</td>
                                 <td>{{deccons.date_of_consultation}}</td>
                                 <td><span class="badge bg-danger-light">Declined</span></td>
-                                
                             </tr>
                         </tbody>
                     </table>
@@ -234,20 +188,19 @@
                     </div>
                     <div class="col-auto">
                         <div class="btn-group">
-                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                             View
+                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                View
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" (click)="clickViewAppointment()">Accepted</a></li>
                                 <li><a class="dropdown-item" (click)="clickViewAppointment()">Rejected</a></li>
                             </ul>
-                          </div>
-                         
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="card-body" style="height : 404px !important">
-               
                 <div class="table-responsive scrollable" style="margin-top: 16px;" [ngSwitch]="viewAppointments">
                     <table class="table table-hover" *ngSwitchCase="'Accepted'">
                         <thead class="thead-light">
@@ -256,50 +209,41 @@
                                 <th>Time</th>
                                 <th>Date</th>
                                 <th>Status</th>
-                                
                             </tr>
                         </thead>
                         <tbody>
-                           
-                            <tr *ngFor = "let accapp of approvedAppointments; let i=index " >
+                            <tr *ngFor="let accapp of approvedAppointments; let i=index ">
                                 <td>
                                     <h2 class="table-avatar">
-                                        <a >{{accapp.first_name}} {{accapp.last_name}}</a>
+                                        <a>{{accapp.first_name}} {{accapp.last_name}}</a>
                                     </h2>
                                 </td>
                                 <td>{{accapp.start_hour}}-{{accapp.end_hour}}</td>
                                 <td>{{accapp.date_of_appointment}}</td>
                                 <td><span class="badge bg-success-light">Accepted</span></td>
-                              
                             </tr>
-                            
                         </tbody>
                     </table>
                     <table class="table table-hover" *ngSwitchCase="'Rejected'">
                         <thead class="thead-light">
-                            <tr >
+                            <tr>
                                 <th>Patient</th>
                                 <th>Time</th>
                                 <th>Date</th>
                                 <th>Status</th>
-                                
                             </tr>
                         </thead>
                         <tbody>
-                           
-                            <tr *ngFor = "let decapp of declinedAppointments; let i=index ">
+                            <tr *ngFor="let decapp of declinedAppointments; let i=index ">
                                 <td>
                                     <h2 class="table-avatar">
-                                        <a >{{decapp.first_name}} {{decapp.last_name}}</a>
-                                            
+                                        <a>{{decapp.first_name}} {{decapp.last_name}}</a>
                                     </h2>
                                 </td>
                                 <td>{{decapp.start_hour}}-{{decapp.end_hour}}</td>
                                 <td>{{decapp.date_of_appointment}}</td>
                                 <td><span class="badge bg-danger-light">Rejected</span></td>
-                              
                             </tr>
-                            
                         </tbody>
                     </table>
                 </div>

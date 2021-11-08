@@ -18,15 +18,14 @@
 <div class="chat-body">
     <div class="chat-scroll" #scroller>
         <ul class="list-unstyled" style="height: 530px !important ;">
+            <li [ngClass]="{'d-flex received ' :message.idFrom!==1}" class="media sent"
+                *ngFor="let message of sentMessages">
 
-
-            <li [ngClass]="{'d-flex received ' :message.idFrom!==1}" class="media sent" *ngFor ="let message of sentMessages">
-                
                 <div class="media-body">
-                    <div  class="msg-box" style="margin-bottom: 5px;">
+                    <div class="msg-box" style="margin-bottom: 5px;">
                         <div [ngClass]="{'msg-rec' :message.idFrom!==1}">
                             <p>{{message.content}}</p>
-                            <ul class="chat-msg-info" >
+                            <ul class="chat-msg-info">
                                 <li>
                                     <div class="chat-time">
                                         <span>{{message.timestamp|date:'shortTime'}}</span>
@@ -37,29 +36,22 @@
                     </div>
                 </div>
             </li>
-            
-
-
-
         </ul>
     </div>
 </div>
 <div class="chat-footer">
     <form [formGroup]="messageFrom" (ngSubmit)="sendMessage()">
-    <div class="input-group">
-        <div class="input-group-prepend">
-            <div class="btn-file btn">
-
-                <input type="file">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="btn-file btn">
+                    <input type="file">
+                </div>
+            </div>
+            <input type="text" class="input-msg-send form-control" placeholder="Type something"
+                formControlName="message">
+            <div class="input-group-append">
+                <button type="submit" class="btn msg-send-btn"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
-
-        <input type="text" class="input-msg-send form-control" placeholder="Type something" formControlName="message">
-        <div class="input-group-append">
-            <button type="submit" class="btn msg-send-btn"><i class="fas fa-paper-plane"></i></button>
-        </div>
-
-
-    </div>
     </form>
 </div>

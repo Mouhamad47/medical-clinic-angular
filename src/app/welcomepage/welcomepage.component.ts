@@ -16,10 +16,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class WelcomepageComponent implements OnInit {
 
-  // scroll:boolean = true;
+  
   headeranimation: boolean = false;
   fade: boolean = false;
-  // today : string = new Date().toDateString();
+  
   allMajors: Major[];
   allSections: Section[];
   consultationSlots: Array<string> = [
@@ -67,8 +67,6 @@ export class WelcomepageComponent implements OnInit {
     this.getAllSections();
     this.desableSlot();
     
-
-
   }
 
   imgAnimation() {
@@ -116,13 +114,13 @@ export class WelcomepageComponent implements OnInit {
   getAvailableConsultationsSlots(date: string, major_id: number) {
     this.apiservice.selectAvailableConsultationSlots(date, major_id).subscribe((data: any) => {
       this.takenSlots = data;
-      // console.log(this.takenSlots);
+      
     })
   }
   getAvailableAppointmentsSlots(date: string, section_id: number) {
     this.apiservice.selectAvailableAppoinmentSlots(date, section_id).subscribe((data: any) => {
       this.takenSlotsApp = data;
-      // console.log(data);
+      
     })
   }
   checkAvailableConsSLot() {
@@ -143,10 +141,7 @@ export class WelcomepageComponent implements OnInit {
         this.chechSlotsAvailablity();
 
       }, 2000);
-
-
     }
-
   }
   checkAvailableAppSLot() {
 
@@ -163,21 +158,17 @@ export class WelcomepageComponent implements OnInit {
       start_hour.enable();
       this.getAvailableAppointmentsSlots(date.value, section_id.value);
       setTimeout(() => {
-        // console.log("hello from checkslots availability app")
-
         this.chechSlotsAvailablityApp();
 
       }, 2000);
 
-
     }
-
   }
   desableSlot() {
     this.consultationForm.get('start_hour').disable();
     this.appointmentForm.get('start_hour').disable();
   }
-  
+
   chechSlotsAvailablity() {
     for (let i: number = 0; i < this.consultationSlots.length; i++) {
       for (let j: number = 0; j < this.takenSlots.length; j++) {
@@ -194,7 +185,7 @@ export class WelcomepageComponent implements OnInit {
           this.appointmentsSlots.splice(i, 1);
         }
       }
-      // console.log(this.takenSlotsApp[0]);
+      
     }
   }
 

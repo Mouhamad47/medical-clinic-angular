@@ -7,13 +7,13 @@
           <div class="input-field">
             <i class="fas fa-user"></i>
             <input type="email" placeholder="Email Address" name="email" formControlName="email" />
-            <!-- <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched" class="help-block">Please enter your email</span> -->
+            
 
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
             <input type="password" placeholder="Password" name="password" formControlName="password" />
-            <!-- <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched" class="help-block">Please enter your password</span> -->
+            
 
           </div>
           <button type="submit" value="Login" class="btn solid" [disabled] = "loginForm.invalid">Login</button>
@@ -39,6 +39,3 @@
     </div>
   </div>
 </div>
-<!-- <div class="test">
-  <p>hello</p>
-</div> -->

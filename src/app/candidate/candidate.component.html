@@ -3,20 +3,10 @@
         <div class="col">
             <h3 class="page-title">Candidates</h3>
         </div>
-        <!-- <div class="col-auto">
-            <a href="add-customer.html" class="btn btn-primary me-1">
-                <i class="fas fa-plus"></i>
-            </a>
-            <a class="btn btn-primary filter-btn" href="javascript:void(0);" id="filter_search">
-                <i class="fas fa-filter"></i>
-            </a>
-        </div> -->
     </div>
 </div>
 
 <div class="container">
-
-
     <div class="row" *ngIf="showTable">
         <div class="col-lg-6" *ngFor=" let candidate of candidates ; let i =index">
             <div class="candidates-listing-item">
@@ -25,40 +15,39 @@
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="candidates-img float-left mr-4 col-md-2">
-                                    <img src="../../assets/images/avatar.svg" alt=""
-                                        class="img-fluid d-block rounded">
+                                    <img src="../../assets/images/avatar.svg" alt="" class="img-fluid d-block rounded">
                                 </div>
                                 <div class="candidates-list-desc job-single-meta  pt-2 col-md-6">
-                                    <h5 class="mb-2 f-19"><a href="#" class="text-dark">{{candidate.first_name}} {{candidate.last_name}}</a></h5>
+                                    <h5 class="mb-2 f-19"><a href="#" class="text-dark">{{candidate.first_name}}
+                                            {{candidate.last_name}}</a></h5>
                                     <ul class="list-inline mb-0">
                                         <li class="list-inline-item mr-4">
-                                            <p class="text-muted f-15 mb-0"><i class="fa fa-user"></i> {{candidate.degree}}</p>
-
+                                            <p class="text-muted f-15 mb-0"><i class="fa fa-user"></i>
+                                                {{candidate.degree}}</p>
                                         </li>
                                         <br>
-
                                         <li class="list-inline-item mr-4">
                                             <p class="f-15 mb-0"><a href="" class="text-muted"><i
                                                         class="fas fa-map-marker-alt"></i> {{candidate.address}}</a></p>
                                         </li>
                                         <br>
-
                                         <li class="list-inline-item">
                                             <p class="text-muted f-15 mb-0"><i class="fas fa-envelope"></i>
                                                 {{candidate.email}}</p>
                                         </li>
                                         <br>
                                         <li class="list-inline-item">
-                                            <p class="text-muted f-15 mb-0"><i class="fas fa-mobile"></i> {{candidate.phone_number}}</p>
+                                            <p class="text-muted f-15 mb-0"><i class="fas fa-mobile"></i>
+                                                {{candidate.phone_number}}</p>
                                         </li>
                                     </ul>
-
                                 </div>
                                 <div class="col-md-3">
                                     <div class="candidates-list-fav-btn text-right">
 
                                         <div class="candidates-listing-btn mt-4">
-                                            <button class="btn btn-danger" (click)="approveCandidate(candidate.id,i)">Decline</button>
+                                            <button class="btn btn-danger"
+                                                (click)="approveCandidate(candidate.id,i)">Decline</button>
                                         </div>
                                     </div>
                                 </div>
@@ -82,7 +71,8 @@
     <div class="row" *ngIf="!showTable">
         <div class="container-fluid">
             <div class="col-md-12">
-                <img style="height: 300px; margin-top: 80px;" class="img-fluid mx-auto d-block" src="../../assets/images/emptystate1.svg" alt="">
+                <img style="height: 300px; margin-top: 80px;" class="img-fluid mx-auto d-block"
+                    src="../../assets/images/emptystate1.svg" alt="">
                 <br>
                 <h3 style="text-align: center;letter-spacing: 8px;margin-left: 105px;">No Candidates for now</h3>
             </div>

@@ -50,27 +50,24 @@ export class NurseComponent implements OnInit {
         uid: response.user.uid,
       }
       this.apiservice.register(registerUser).subscribe((data: User) => {
-      console.log("Sucess", data);
       this.addNurseForm.reset();
       alert("Nurse Registered Successfully");
     })
     })
   
   }
-
   getMajors() {
     this.apiservice.selectLastTwoMajors().subscribe(data => {
       this.lastTwoMajors = data;
-      console.log(this.lastTwoMajors);
+      
     })
   }
   getAllNurses() {
     this.apiservice.selectAllNurses().subscribe(data => {
       this.allNurses = data;
-      console.log(data);
+      
     })
   }
-
   removeNurse(id: number, i: number) {
     this.apiservice.deleteNurse(id).subscribe((User: User) => {
       this.allNurses.splice(i, 1);

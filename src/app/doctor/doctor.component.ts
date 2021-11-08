@@ -43,7 +43,6 @@ export class DoctorComponent implements OnInit {
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'password': new FormControl(null, [Validators.required, Validators.minLength(6), Validators.maxLength(10)]),
       'address': new FormControl(null, [Validators.required, Validators.minLength(4), Validators.maxLength(15)]),
-      // 'date_of_employment': new FormControl(null, [Validators.required]),
       'role': new FormControl(2, [Validators.required, Validators.minLength(1), Validators.maxLength(1)]),
       'major_id': new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(1)]),
 
@@ -56,13 +55,13 @@ export class DoctorComponent implements OnInit {
   getAllDoctors() {
     this.apiservice.selectAllDoctors().subscribe(data => {
       this.allDoctors = data;
-      console.log(data);
+      
     })
   }
   getAllMajors() {
     this.apiservice.selectMajors().subscribe(data => {
       this.allMajors = data;
-      console.log(data);
+      
     })
   }
 
@@ -81,12 +80,9 @@ export class DoctorComponent implements OnInit {
 
         }
         this.apiservice.register(registerUser).subscribe((data: User) => {
-
-          console.log("Sucess", data);
           this.addDoctorForm.reset();
         })
       })
-
 
   }
   removeDoctor(id: number, i: number) {
